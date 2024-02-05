@@ -1,0 +1,37 @@
+[
+    {
+      "name": "Tempest Doom H-Mech Teclado RGB",
+      "price": 21.99,
+      "image": "https://thumb.pccomponentes.com/w-530-530/articles/31/315684/1277-tempest-doom-rgb-h-teclado-mecanico.jpg",
+      "description": "Combina lo mejor de ambas tecnologías para darte una sensación de uso muy superior al resto, la tecnología Híbrida ha llegado para quedarse y este teclado es buena muestra de ello.",
+      "category": "Teclados"
+    },
+    {
+      "name": "Newskill Serike Teclado Mecánico Gaming Full RGB Switch Blue",
+      "price": 58.99,
+      "image": "https://img.pccomponentes.com/articles/24/249946/serike.jpg",
+      "description": "Para los amantes de los teclados mecánicos compactos, en Newskill os presentamos a Serike. Un teclado con una propuesta RGB en la que destaca un aura de retroiluminación en sus laterales y que va recorriendo todas sus teclas.",
+      "category": "Teclados"
+    },
+    {
+      "name": "Newskill Suiko Ivory Teclado Mecánico Gaming Full RGB Switch Kailh Red",
+      "price": 69.95,
+      "image": "https://img.pccomponentes.com/articles/24/249972/suiko-ivory.jpg",
+      "description": "Suiko Ivory, nuestro primer teclado mecánico blanco que tanto estabais pidiendo, por fin ha llegado. Con Suiko podremos configurar más de 20 modos distintos de iluminación",
+      "category": "Teclados"
+    },
+    {
+      "name": "Owlotech Office K300 Teclado USB Negro",
+      "price": 7.99,
+      "image": "https://thumb.pccomponentes.com/w-530-530/articles/51/515203/1417-owlotech-office-k300-teclado-usb-negro.jpg",
+      "description": "Presentamos el teclado que tanto echabas en falta en tu casa u oficina. Llega ante ti el nuevo Owlotech Office K300, un teclado con una ergonomía y belleza exquisita",
+      "category": "Teclados"
+    },
+    {
+      "name": "Logitech G413 TKL SE Teclado Gaming Mecánico Retroiluminado",
+      "price": 65.99,
+      "image": "https://thumb.pccomponentes.com/w-530-530/articles/1046/10467407/1110-logitech-g413-tkl-se-teclado-gaming-mecanico-retroiluminado-caracteristicas.jpg",
+      "description": "Combina lo mejor de ambas tecnologías para darte una sensación de uso muy superior al resto, la tecnología Híbrida ha llegado para quedarse y este teclado es buena muestra de ello.",
+      "category": "Teclados"
+    }
+]

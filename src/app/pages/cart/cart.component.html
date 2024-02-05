@@ -1,0 +1,203 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de compras</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+</head>
+<body>
+
+ <!-- Encabezado de la página con un logo y una barra de navegación -->
+ <header>
+  <div class="container">
+    <nav class="main-nav">
+      <!-- Menú de navegación -->
+      <ul id="menu">
+        <!-- Logo -->
+        <li (click)="this.onClickHome()" class="logo">
+          <a routerLink="/">
+            <!-- Usamos un atributo alt para la imagen -->
+            <img alt="Icono de PCStore" src="/assets/Imagenes/Titulo.png">
+          </a>
+        </li>
+      <!-- Opciones de menú -->
+    
+      <li><a routerLink="/productos">Productos</a></li>
+<li class="categorias">
+  <a routerLink="/categorias">Categorías</a>
+  <ul class="desplegable">
+    <li><a routerLink="/categorias/auriculares">Auriculares</a></li>
+    <li><a routerLink="/categorias/monitores">Monitores</a></li>
+    <li><a routerLink="/categorias/ratones">Ratones</a></li>
+    <li><a routerLink="/categorias/teclados">Teclados</a></li>
+  </ul>
+</li>
+<li><a routerLink="/servicios">Servicios</a></li>
+<li><a routerLink="/contacto">Contacto</a></li>
+
+        <!-- Añadimos un elemento li con una clase main-nav__item-search -->
+        <li class="main-nav__item main-nav__item--search">
+        <!-- Dentro del elemento li, añadimos un formulario con un método get y una acción que llama a una función de búsqueda -->
+        <form method="get" action="/search">
+          <!-- Dentro del formulario, añadimos un input de tipo text con un nombre search y un placeholder que dice Buscar -->
+          <input type="text" name="search" placeholder="Buscar">
+          <!-- También añadimos un botón de tipo submit con una clase main-nav__link y un icono de una lupa -->
+          <button type="submit" class="main-nav__link">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+        </li>
+
+        <li>
+          <a class="main-nav__link"><i class="fa fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Contenido principal -->
+<div *ngIf="productos.length > 0; else emptyCart">
+  <h2>Carrito de Compras</h2>
+  <ul>
+    <li *ngFor="let producto of productos">
+      <img [src]="producto.imagen" [alt]="producto.nombre" />
+      <span>{{ producto.nombre }}</span>
+      <button (click)="eliminarProducto(producto)">Eliminar</button>
+    </li>
+  </ul>
+  <button (click)="eliminarTodosLosProductos()">Eliminar todos los productos</button>
+  <button (click)="realizarPedido()">Realizar Pedido</button>
+</div>
+
+<ng-template #emptyCart>
+  <!--<p>No hay productos en el carrito.</p>--> 
+</ng-template>
+
+<section class="h-100">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black"><strong>Carrito de compra</strong></h3>  
+          <button type="button" class="btn  btn-block btn-lg">Vaciar carrito</button>
+        </div>  
+
+        <div class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  src="https://thumb.pccomponentes.com/w-530-530/articles/31/315684/1277-tempest-doom-rgb-h-teclado-mecanico.jpg"
+                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2"><strong>Tempest Doom H-Mech Teclado RGB</strong></p>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">21.99€</h5>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  src="https://thumb.pccomponentes.com/w-530-530/articles/1064/10643195/1123-msi-g27cq4-e2-27-led-wqhd-170hz-freesync-premium-curva.jpg"
+                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2"><strong>MSI G27CQ4 E2 27 LED WQHD 170Hz FreeSync Premium Curva</strong></p>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">286.99€</h5>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  src="https://img.pccomponentes.com/articles/31/310369/1795-newskill-eos-ivory-raton-gaming-professional-rgb-16000dpi-blanco-review.jpg"
+                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2"><strong>Newskill Eos Ivory Ratón Gaming Professional RGB 16000DPI Blanco</strong></p>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">49.95€</h5>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  src="https://img.pccomponentes.com/articles/10/107036/xonar-x6-main2.jpg"
+                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2"><strong>BG Xonar X6 Auriculares Gaming 7.1</strong></p>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">20.99€</h5>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="card-body">
+            <button type="button" class="btn btn-block btn-lg">Finalizar compra</button>
+          </div>
+          <h4>Total: 379.79€</h4>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pie de página -->
+<footer>
+  <div class="contact-info" id="contact">
+    <h3>Contacto</h3>
+    <p>Si tienes alguna pregunta o necesitas ayuda, por favor no dudes en contactarnos.</p>
+    <ul>
+      <li><i class="fas fa-map-marker-alt"></i> Dirección: Calle Gran Vía 12</li>
+      <li><i class="fas fa-envelope"></i> Correo electrónico: <a href="mailto:info@pcstore.com">info@pcstore.com</a></li>
+      <li><i class="fas fa-phone"></i> Teléfono: +123 456 789</li>
+    </ul>
+  </div>
+  <div class="social-media">
+    <h3>Síguenos en las redes sociales</h3>
+    <ul>
+      <li><a href="https://api.whatsapp.com/send?phone=123456789"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+      <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
+      <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+    </ul>
+  </div>
+</footer>

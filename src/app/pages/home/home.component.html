@@ -1,0 +1,368 @@
+<head>
+	<title>PCStore</title>
+	<meta charset="UTF-8"> <!--Para la codificación de caracteres -->
+	<!-- Enlazamos el archivo CSS que contiene los estilos de la página -->
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
+		  integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+
+	<!-- Metaetiqueta para la compatibilidad con dispositivos móviles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- Encabezado de la página con un logo y una barra de navegación -->
+<header>
+  <div class="container">
+    <nav class="main-nav">
+      <!-- Menú de navegación -->
+      <ul id="menu">
+        <!-- Logo -->
+        <li class="logo">
+          <a routerLink="/">
+            <!-- Usamos un atributo alt para la imagen -->
+            <img alt="Icono de PCStore" src="/assets/Imagenes/Titulo.png">
+          </a>
+        </li>
+      <!-- Opciones de menú -->
+    
+      <li><a routerLink="/productos">Productos</a></li>
+<li class="categorias">
+  <a routerLink="/categorias">Categorías</a>
+  <ul class="desplegable">
+    <li><a routerLink="/categorias/auriculares">Auriculares</a></li>
+    <li><a routerLink="/categorias/monitores">Monitores</a></li>
+    <li><a routerLink="/categorias/ratones">Ratones</a></li>
+    <li><a routerLink="/categorias/teclados">Teclados</a></li>
+  </ul>
+</li>
+<li><a routerLink="/servicios">Servicios</a></li>
+<li><a routerLink="/contacto">Contacto</a></li>
+
+        <!-- Añadimos un elemento li con una clase main-nav__item-search -->
+        <li class="main-nav__item main-nav__item--search">
+        <!-- Dentro del elemento li, añadimos un formulario con un método get y una acción que llama a una función de búsqueda -->
+        <form method="get" action="/search">
+          <!-- Dentro del formulario, añadimos un input de tipo text con un nombre search y un placeholder que dice Buscar -->
+          <input type="text" name="search" placeholder="Buscar">
+          <!-- También añadimos un botón de tipo submit con una clase main-nav__link y un icono de una lupa -->
+          <button type="submit" class="main-nav__link">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+        </li>
+
+        <li>
+          <a (click)="this.onClickCart()" class="main-nav__link"><i class="fa fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Creamos el Cuerpo de la página-->
+<main>	
+
+<!-- Sección de presentación -->
+<br>
+  <section id="showcase">
+    <div class="container">
+      <h1>Bienvenido a PCStore</h1>
+        <p>En PCStore nos dedicamos a proporcionar a nuestros clientes los mejores componentes y periféricos para su ordenador. Ofrecemos una amplia variedad de productos de alta calidad a 	precios competitivos para satisfacer todas tus necesidades informáticas. Ya seas un gamer, un profesional creativo o simplemente alguien que busca mejorar su experiencia informática, en PCStore tenemos todo lo que necesitas.</p>	
+    </div>
+  </section>
+
+  <!-- Sección de productos --> 
+  <section id="productos"> 
+    <div class="container"> 
+      <h2 id="titulos">Nuestros Productos</h2> 
+      <!-- Usamos la clase products-grid para crear una tabla de productos con flexbox -->
+      <div class="products-grid"> 
+        <!-- Usamos la clase product-card para crear una tarjeta de producto con una imagen, un título, un precio y un botón -->
+        <div class="product-card"> 
+          <img alt="Producto 1" src="/assets/Imagenes/Raton1.png"> 
+          <a (click)="this.onClickProduct()"><h3>Ratón Gaiming</h3></a>
+          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+          <div class="card-footer">
+            <p>Precio: 50.00€</p> 
+            <button class="button_2">
+              <i class="fa fa-shopping-cart">
+              </i> Agregar al carrito</button> 
+          </div>
+        </div> 
+
+        <div class="product-card">
+          <img alt="Producto 2" src="/assets/Imagenes/Cascos1.png"> 
+          <h3>Auriculares gaiming azul</h3>
+          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+          <div class="card-footer">
+            <p>Precio: 75.00€</p> 
+            <button class="button_2">
+              <i class="fa fa-shopping-cart">
+              </i> Agregar al carrito</button>  
+          </div>
+        </div> 
+
+        <div class="product-card"> 
+          <img alt="Producto 3" src="/assets/Imagenes/Cascos2.png">
+          <h3>Auriculares Gaiming Rojo</h3> 
+          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+          <div class="card-footer">
+            <p>Precio: 70.00€</p> 
+            <button class="button_2">
+              <i class="fa fa-shopping-cart">
+              </i> Agregar al carrito</button> 
+          </div>
+        </div> 
+
+        <div class="product-card">
+          <img alt="Producto 4" src="/assets/Imagenes/Teclado1.png"> 
+          <h3>Teclado Gaiming</h3> 
+          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+          <div class="card-footer">
+            <p>Precio: 40.00€</p> 
+            <button class="button_2">
+              <i class="fa fa-shopping-cart">
+              </i> Agregar al carrito</button> 
+          </div>
+        </div> 
+
+        <div class="product-card">
+          <img alt="Producto 5" 	src="/assets/Imagenes/Raton2.png"> 
+          <h3>Ratón</h3> 
+          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+          <div class="card-footer">
+            <p>Precio: 30.00€</p> 
+            <button class="button_2">
+              <i class="fa fa-shopping-cart">
+              </i> Agregar al carrito</button> 
+          </div>
+        </div> 
+
+        <div class="product-card">
+          <img alt="Producto 6" src="/assets/Imagenes/Monitor1.png"> 
+          <h3> Monitor 4K</h3> 
+          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+          <div class="card-footer">
+            <p>Precio: 400.00€</p> 
+            <button class="button_2">
+              <i class="fa fa-shopping-cart">
+              </i> Agregar al carrito</button> 
+          </div>
+        </div> 
+
+        <div class="product-card">
+          <img alt="Producto 7" src="/assets/Imagenes/Raton3.png"> 
+          <h3>Raton blanco</h3> 
+          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+          <div class="card-footer">
+            <p>Precio: 30.00€</p> 
+            <button class="button_2">
+              <i class="fa fa-shopping-cart">
+              </i> Agregar al carrito</button> 
+          </div>
+        </div> 
+
+        <div class="product-card">
+          <img alt="Producto 8" src="/assets/Imagenes/Monitor2.png"> 
+          <h3>Monitor LG</h3> 
+          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+          <div class="card-footer">
+            <p>Precio: 200.00€</p> 
+            <button class="button_2">
+              <i class="fa fa-shopping-cart">
+              </i> Agregar al carrito</button> 
+          </div>
+        </div> 
+
+        <div class="product-card">
+          <img alt="Producto 9" src="/assets/Imagenes/Teclado2.png"> 
+          <h3>Teclado</h3> 
+          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+          <div class="card-footer">
+            <p>Precio: 20.00€</p> 
+            <button class="button_2">
+              <i class="fa fa-shopping-cart">
+              </i> Agregar al carrito</button> 
+          </div>
+        </div> 
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorías -->
+  <section id="categorias"> 
+    <div class="container"> 
+      <h2 id="titulos">Categorías</h2> 
+      
+    <!-- Auriculares --> 
+    <section id="Auriculares"> 
+      <div class="container"> 
+        <h2 id="titulo-cat">Auriculares</h2>
+        <div class="products-grid">
+          <div class="product-card">
+            <img alt="Producto 2" src="/assets/Imagenes/Cascos1.png"> 
+            <h3>Auriculares gaiming azul</h3>
+            <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+            <div class="card-footer">
+              <p>Precio: 75.00€</p> 
+              <button class="button_2">
+                <i class="fa fa-shopping-cart">
+                </i> Agregar al carrito</button> 
+            </div>
+          </div> 
+
+          <div class="product-card"> 
+            <img alt="Producto 3" src="/assets/Imagenes/Cascos2.png">
+            <h3>Auriculares Gaiming Rojo</h3> 
+            <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+            <div class="card-footer">
+              <p>Precio: 70.00€</p> 
+              <button class="button_2">
+                <i class="fa fa-shopping-cart">
+                </i> Agregar al carrito</button>  
+            </div>
+          </div> 
+        </div>
+      </div>
+    </section>
+    
+    <!-- Monitores --> 
+    <section id="Monitores"> 
+      <div class="container"> 
+        <h2  id="titulo-cat">Monitores</h2>
+        <div class="products-grid">
+          <div class="product-card">
+            <img alt="Producto 6" src="/assets/Imagenes/Monitor1.png"> 
+            <h3> Monitor 4K</h3> 
+            <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+            <div class="card-footer">
+              <p>Precio: 400.00€</p> 
+              <button class="button_2">
+                <i class="fa fa-shopping-cart">
+                </i> Agregar al carrito</button> 
+            </div>
+          </div> 
+
+          <div class="product-card">
+            <img alt="Producto 8" src="/assets/Imagenes/Monitor2.png"> 
+            <h3>Monitor LG</h3> 
+            <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+            <div class="card-footer">
+              <p>Precio: 200.00€</p> 
+              <button class="button_2">
+                <i class="fa fa-shopping-cart">
+                </i> Agregar al carrito</button> 
+            </div>
+          </div> 
+        </div>
+      </div>
+    </section>
+        
+    <!-- Ratones --> 
+    <section id="Ratones"> 
+      <div class="container"> 
+        <h2 id="titulo-cat">Ratones</h2>
+        <div class="products-grid">
+          <div class="product-card"> 
+            <img alt="Producto 1" src="/assets/Imagenes/Raton1.png"> 
+            <h3>Ratón Gaiming</h3> 	
+            <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+            <div class="card-footer">
+              <p>Precio: 50.00€</p> 
+              <button class="button_2">
+                <i class="fa fa-shopping-cart">
+                </i> Agregar al carrito</button> 
+            </div>
+          </div> 
+
+          <div class="product-card">
+            <img alt="Producto 5" src="/assets/Imagenes/Raton2.png"> 
+            <h3>Ratón</h3> 
+            <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+            <div class="card-footer">
+              <p>Precio: 30.00€</p> 
+              <button class="button_2">
+                <i class="fa fa-shopping-cart">
+                </i> Agregar al carrito</button> 
+            </div>
+          </div> 
+
+          <div class="product-card">
+            <img alt="Producto 7" src="/assets/Imagenes/Raton3.png"> 
+            <h3>Raton blanco</h3> 
+            <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+            <div class="card-footer">
+              <p>Precio: 30.00€</p> 
+              <button class="button_2">
+                <i class="fa fa-shopping-cart">
+                </i> Agregar al carrito</button> 
+            </div>
+          </div> 
+        </div>
+      </div>
+    </section>
+
+    <!-- Teclados --> 
+    <section id="Teclados"> 
+      <div class="container"> 
+        <h2 id="titulo-cat">Teclados</h2>
+        <div class="products-grid">
+          <div class="product-card">
+            <img alt="Producto 4" src="/assets/Imagenes/Teclado1.png"> 
+            <h3>Teclado Gaiming</h3> 
+            <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+            <div class="card-footer">
+              <p>Precio: 40.00€</p> 
+              <button class="button_2">
+                <i class="fa fa-shopping-cart">
+                </i> Agregar al carrito</button> 
+            </div>
+          </div>  
+
+          <div class="product-card">
+            <img alt="Producto 9" src="/assets/Imagenes/Teclado2.png"> 
+            <h3>Teclado</h3> 
+            <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
+            <div class="card-footer">
+              <p>Precio: 20.00€</p> 
+              <button class="button_2">
+                <i class="fa fa-shopping-cart">
+                </i> Agregar al carrito</button> 
+            </div>
+          </div> 
+        </div>
+
+      </div>
+    </section>
+    </div>
+  </section>
+</main>
+
+<!-- Creamos el pie de página con la zona de Contacto -->
+
+  <footer>
+  <!-- Div para la sección de contacto -->
+  <div class="contact-info" id="contacto">
+  <h3>Contacto</h3>
+  <p>Si tienes alguna pregunta o necesitas ayuda, por favor no dudes en contactarnos.</p>
+  <ul>
+    <li><i class="fas fa-map-marker-alt"></i> Dirección: Calle Gran Vía 12</li>
+    <li><i class="fas fa-envelope"></i> Correo electrónico: <a href="mailto:info@pcstore.com">info@pcstore.com</a></li>
+    <li><i class="fas fa-phone"></i> Teléfono: +123 456 789</li>
+  </ul>
+  </div>
+  <!-- Div para la sección de redes sociales -->
+  <div class="social-media">
+  <h3>Síguenos en las redes sociales</h3>
+  <ul>
+    <li><a href="https://api.whatsapp.com/send?phone=123456789"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+    <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
+    <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+  </ul>
+  </div>
+</footer>
+
+  </body>

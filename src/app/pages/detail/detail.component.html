@@ -1,0 +1,103 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de compras</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+</head>
+<body>
+
+  <!-- Encabezado de la página con un logo y una barra de navegación -->
+  <header>
+    <div class="container">
+      <nav class="main-nav">
+        <!-- Menú de navegación -->
+        <ul id="menu">
+          <!-- Logo -->
+          <li class="logo">
+            <a routerLink="/">
+              <!-- Usamos un atributo alt para la imagen -->
+              <img alt="Icono de PCStore" src="/assets/Imagenes/Titulo.png">
+            </a>
+          </li>
+        <!-- Opciones de menú -->
+      
+        <li><a routerLink="/productos">Productos</a></li>
+  <li class="categorias">
+    <a routerLink="/categorias">Categorías</a>
+    <ul class="desplegable">
+      <li><a routerLink="/categorias/auriculares">Auriculares</a></li>
+      <li><a routerLink="/categorias/monitores">Monitores</a></li>
+      <li><a routerLink="/categorias/ratones">Ratones</a></li>
+      <li><a routerLink="/categorias/teclados">Teclados</a></li>
+    </ul>
+  </li>
+  <li><a routerLink="/servicios">Servicios</a></li>
+  <li><a routerLink="/contacto">Contacto</a></li>
+  
+          <!-- Añadimos un elemento li con una clase main-nav__item-search -->
+          <li class="main-nav__item main-nav__item--search">
+          <!-- Dentro del elemento li, añadimos un formulario con un método get y una acción que llama a una función de búsqueda -->
+          <form method="get" action="/search">
+            <!-- Dentro del formulario, añadimos un input de tipo text con un nombre search y un placeholder que dice Buscar -->
+            <input type="text" name="search" placeholder="Buscar">
+            <!-- También añadimos un botón de tipo submit con una clase main-nav__link y un icono de una lupa -->
+            <button type="submit" class="main-nav__link">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+          </li>
+  
+          <li>
+            <a (click)="this.onClickCart()" class="main-nav__link"><i class="fa fa-shopping-cart"></i>
+              <span class="cart-count">0</span>
+          </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<main>
+  <section class="product-details">
+  <div class="container">
+    <div class="product-info-container">
+    <div class="product-images">
+      <img src="/assets/Imagenes/Raton1.png" alt="Ratón Gaiming">
+    </div>
+    <div class="product-info">
+      <h1>Ratón Gaiming</h1>
+      <p>Este ratón para gaming es perfecto para cualquier jugador de PC que busque precisión y velocidad. Con una tasa de sondeo de hasta 1000 Hz y una sensibilidad ajustable hasta 6000 DPI, este ratón es capaz de proporcionar la mejor experiencia de juego posible. Además, su diseño ergonómico y sus 6 botones programables lo hacen muy cómodo y versátil.</p>
+      <p>Precio: 50.00€</p>
+      <button class="button_1">Agregar al carrito</button>
+    </div>
+    </div>
+  </div>
+  </section>
+</main>
+
+
+<!-- Creamos el pie de página con la zona de Contacto -->
+
+  <footer>
+  <!-- Div para la sección de contacto -->
+  <div class="contact-info">
+  <h3>Contacto</h3>
+  <p>Si tienes alguna pregunta o necesitas ayuda, por favor no dudes en contactarnos.</p>
+  <ul>
+    <li><i class="fas fa-map-marker-alt"></i> Dirección: Calle Gran Vía 12</li>
+    <li><i class="fas fa-envelope"></i> Correo electrónico: <a href="mailto:info@pcstore.com">info@pcstore.com</a></li>
+    <li><i class="fas fa-phone"></i> Teléfono: +123 456 789</li>
+  </ul>
+  </div>
+  <!-- Div para la sección de redes sociales -->
+  <div class="social-media">
+  <h3>Síguenos en las redes sociales</h3>
+  <ul>
+    <li><a href="https://api.whatsapp.com/send?phone=123456789"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+    <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
+    <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+  </ul>
+  </div>
+</footer>
+
+</body>

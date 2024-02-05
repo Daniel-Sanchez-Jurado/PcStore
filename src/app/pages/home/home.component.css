@@ -1,0 +1,289 @@
+/* Estilos para el encabezado y la barra de navegación */
+header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* Estilos para los enlaces de la barra de navegación */
+  #menu li {
+    display: inline-block; /* Mostramos los elementos en una línea horizontal */
+    padding: 2rem; /* Espacio entre los elementos */
+  }
+  
+  /* Estilos para los enlaces de la barra de navegación */
+  #menu li a {
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Quitamos el subrayado */
+  }
+  
+  /* Estilos para el logo */
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    width: 200px;
+    height: 100%;
+  }
+  
+  
+  .logo img {
+    max-width: 100%; /* Para que el logo se adapte al tamaño del contenedor */
+    vertical-align: middle; /* Agregamos esta propiedad para alinear verticalmente el logo */
+  }
+  
+  /* Estilos para los enlaces de categorías */
+  .categorias {
+    position: relative; /* Para posicionar el menú desplegable */
+  }
+  
+  /* Estilos para el menú desplegable */
+  .desplegable {
+    display: none; /* Ocultamos el menú por defecto */
+    position: absolute; /* Lo posicionamos encima de la opción de menú */
+    top: 100%; /* Colocamos el menú debajo de la opción de menú */
+    left: 0; /* Lo alineamos a la izquierda */
+    background-color: black; /* Fondo negro para el menú */
+  }
+  
+  /* Mostramos el menú desplegable al pasar el ratón sobre la opción de menú */
+  .categorias:hover .desplegable {
+    display: block;
+  }
+  
+  /* Estilos para los elementos del menú desplegable */
+  .desplegable li {
+    display: block; /* Mostramos los elementos uno debajo del otro */
+    padding: 0.5rem; /* Espacio entre los elementos */
+  }
+  
+  /* Estilos para el botón de búsqueda */
+  .main-nav__item--search button {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Quitamos el borde */
+    cursor: pointer; /* Cambiamos el cursor al pasar el ratón */
+  }
+  
+  /* Estilos para el icono de búsqueda */
+  .main-nav__item--search i {
+    color: white;
+  }
+  
+  /* Estilos para el icono de carrito */
+  .cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+  }
+  
+  /* Media query para hacer la barra de navegación más flexible */
+  @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+        align-items: center;
+    }
+  
+    #menu li {
+      display: block;
+      padding: 0.5rem;
+      text-align: center;
+    }
+  }
+  
+  
+  /* Estilo para el CUERPO DE LA PÁGINA */
+  
+  /* Estilos para sección de productos y categorías */
+  .container {
+    display: block;
+      flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  
+  /* Estilo del título de la sección de productos */
+  #titulos {
+      text-align: center;
+      font-size: 28px;
+      color: red;
+      font: bold;
+      margin-bottom: 50px;
+      margin-top: 50px;
+  }
+  
+  /* Estilo del título de la sección de productos */
+  #titulo-cat {
+      text-align: center;
+      font-size: 20px;
+      color: red;
+      margin: 30px;
+  }
+  
+  /* Estilo de la tabla de productos */
+  .products-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  
+  /* Estilo de las tarjetas de producto */
+  .product-card {
+    width: 300px; /* Ancho fijo de 300px */
+    height: 400px;
+    padding: 10px;
+      margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #888; /* Agregado un valor para el color */
+  }
+  
+  /* Estilo de las imágenes de los productos */
+  .product-card img {
+      width: 100%; /* Ancho fijo de 200px */
+      height: 200px; 
+      object-fit: contain; /* Ajustar la imagen al tamaño del contenedor */ 
+      border-radius: 10px; 
+      margin-bottom: 10px;
+  }
+  
+  /* Estilo del título de los productos */
+  .product-card h3 {
+      font-size: 20px;
+      margin-top: 20px;
+      text-align: center;
+  }
+  /* Estilo para el CUERPO DE LA PÁGINA */
+  
+  a {
+    text-decoration: none;
+      color: black;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+      color: #f00;
+  }
+  
+  .card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilo del botón de agregar al carrito */
+  .button_2 {
+      background-color: red;
+      color: #fff;
+    padding: 6px 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  
+  .button_2:hover {
+    background-color: #449d44;
+  }
+  
+  /* Si el ancho de la pantalla es menor o igual a 768px */
+  @media screen and (max-width: 768px) {
+    /* Mostrar los productos en filas */
+    .products-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    /* Hacer que las tarjetas de producto ocupen todo el ancho de la pantalla */
+    .product-card {
+      width: 100%;
+    }
+  }
+  
+  
+  /* Estilo para el PIE DE PÁGINA */
+  footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 60px; /* añadir espacio entre columnas */
+  
+  }
+  
+  /* Estilo para la lista de información de contacto */
+  .contact-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact-info li {
+    margin-bottom: 10px;
+  }
+  
+  /* Cambiar el color del enlace de correo electrónico */
+  .contact-info a {
+    color: #f00;
+  }
+  
+  /* Estilo para la lista de redes sociales */
+  .social-media ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .social-media li {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  
+  /* Eliminar el margen derecho del último elemento de la lista */
+  .social-media li:last-child {
+    margin-right: 0;
+  }
+  
+  .social-media a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .social-media a i {
+    font-size: 20px;
+    margin-right: 5px;
+    color: #fff;
+  }
+  
+  /* Cambiar el color del icono al pasar el ratón por encima */
+  .social-media a:hover {
+    color: #fff;
+  }
+  
+  .social-media a:hover i {
+    color: #f00;
+  }
+  
+  /* Estilo para la etiqueta "info" del correo electrónico */
+  .footer-label {
+    color: #f00;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  

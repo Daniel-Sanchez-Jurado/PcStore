@@ -1,0 +1,51 @@
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<!-- Link a la librería Font Awesome para agregar iconos -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+	<!-- Contenedor principal -->
+	<div class="background">
+		<!-- Logo -->
+		<img src="/assets/Imagenes/LOGO_rojo.png" alt="Logo" class="logo">
+
+
+		<!-- Contenedor del formulario -->
+		<div class="container">
+            
+			<!-- Icono de usuario -->
+			<div class="user-icon">
+				<i class="fas fa-user"></i>
+			</div>
+            
+			<!-- Título del formulario -->
+			<h2 class="title">Login</h2>
+            
+			<!-- Formulario de inicio de sesión -->
+			<form class="form" #userLogin="ngForm">
+                
+				<!-- Campo de entrada de usuario -->
+				<label for="username">Usuario</label>
+				<input type="text" id="username" name="username" class="input" [(ngModel)]="user" autocomplete="off" placeholder="cev" tabindex="1" required />
+
+				<!-- Campo de entrada de contraseña -->
+				<label for="password">Contraseña</label>
+				<label for="password">Contraseña</label>
+				<div class="password-container">
+				  <input type="{{ showPassword ? 'text' : 'password' }}" id="password" name="password" class="input" [(ngModel)]="password" autocomplete="off" placeholder="contraseña" tabindex="2" required />
+				  <button type="button" class="password-toggle-btn" (click)="togglePasswordVisibility()">
+					<i class="far" [ngClass]="{'fa-eye': showPassword, 'fa-eye-slash': !showPassword}"></i>
+				  </button>
+				</div>
+				<!-- Botón de envío del formulario -->
+				<button (click)="onClickLogin()" type="submit">Login</button>
+			</form>
+		</div>
+	</div>
+</body>
