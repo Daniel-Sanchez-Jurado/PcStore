@@ -1,5 +1,4 @@
 import { CartModule } from './cart/cart.module';
-import { CartComponent } from './cart/cart.component';
 import { DetailModule } from './detail/detail.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';

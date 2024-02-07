@@ -13,6 +13,7 @@ export class LoginComponent {
 
   users: { username: string; password: string }[] = [
     { username: 'admin', password: 'admin' },
+    { username: 'owner', password: 'owner' },
     { username: 'dani', password: 'dani' },
     { username: 'javi', password: 'javi' },
     { username: 'david', password: 'david' }

@@ -14,7 +14,7 @@
       <ul id="menu">
         <!-- Logo -->
         <li (click)="this.onClickHome()" class="logo">
-          <a routerLink="/">
+          <a routerLink="/home">
             <!-- Usamos un atributo alt para la imagen -->
             <img alt="Icono de PCStore" src="/assets/Imagenes/Titulo.png">
           </a>
@@ -22,17 +22,17 @@
       <!-- Opciones de menú -->
     
       <li><a routerLink="/productos">Productos</a></li>
-<li class="categorias">
-  <a routerLink="/categorias">Categorías</a>
-  <ul class="desplegable">
-    <li><a routerLink="/categorias/auriculares">Auriculares</a></li>
-    <li><a routerLink="/categorias/monitores">Monitores</a></li>
-    <li><a routerLink="/categorias/ratones">Ratones</a></li>
-    <li><a routerLink="/categorias/teclados">Teclados</a></li>
-  </ul>
-</li>
-<li><a routerLink="/servicios">Servicios</a></li>
-<li><a routerLink="/contacto">Contacto</a></li>
+      <li class="categorias">
+        <a routerLink="/categorias">Categorías</a>
+        <ul class="desplegable">
+          <li><a routerLink="/categorias/auriculares">Auriculares</a></li>
+          <li><a routerLink="/categorias/monitores">Monitores</a></li>
+          <li><a routerLink="/categorias/ratones">Ratones</a> </li>
+          <li><a routerLink="/categorias/teclados">Teclados</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/servicios">Servicios</a></li>
+      <li><a routerLink="/contacto">Contacto</a></li>
 
         <!-- Añadimos un elemento li con una clase main-nav__item-search -->
         <li class="main-nav__item main-nav__item--search">
