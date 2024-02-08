@@ -4,6 +4,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { ServicesComponent } from './pages/services/services.component';
 
 // Routing con las rutas de los dos componentes para poder navegar entre ellos, de inicio redirige a login.
 const routes: Routes = [
@@ -11,6 +13,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'cart', component: CartComponent},
   {path: 'detail', component: DetailComponent},
+  {path: 'categories', component: CategoriesComponent},
+  {path: 'services', component: ServicesComponent},
   {path: '**', redirectTo: 'login'},
   { path: '', component: HomeComponent },
   { path: 'productos', component: HomeComponent },

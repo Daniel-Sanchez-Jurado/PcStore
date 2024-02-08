@@ -1,8 +1,10 @@
 import { CartModule } from './cart/cart.module';
+import { CategoriesModule } from './categories/categories.module';
 import { DetailModule } from './detail/detail.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { NgModule } from '@angular/core';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [],
@@ -10,13 +12,17 @@ import { NgModule } from '@angular/core';
     LoginModule, 
     HomeModule,
     DetailModule,
-    CartModule
+    CartModule,
+    CategoriesModule,
+    ServicesModule
   ],
   exports: [
     LoginModule, 
     HomeModule,
     DetailModule,
-    CartModule
+    CartModule,
+    CategoriesModule,
+    ServicesModule
   ],
   providers: [],
 })

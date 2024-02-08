@@ -11,11 +11,11 @@ interface Producto {
 }
 
 @Component({
-  selector: 'cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  selector: 'categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.css']
 })
-export class CartComponent {
+export class CategoriesComponent {
   productos: Producto[] = [];
 
   eliminarProducto(producto: Producto) {
@@ -36,7 +36,7 @@ export class CartComponent {
     private router: Router,
     private titulo: Title
     ) {
-      titulo.setTitle('PcStore - Carrito');
+      titulo.setTitle('PcStore - Categorías');
     }
 
     ngOnInit() {}

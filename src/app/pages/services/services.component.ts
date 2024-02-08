@@ -1,20 +1,19 @@
 import { Router } from '@angular/router';
-import { RegisterForm } from '../../models/registerForm';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css'],
-  providers: [],
+  selector: 'services',
+  templateUrl: './services.component.html',
+  styleUrls: ['./services.component.css'],
 })
-export class DetailComponent implements OnInit {
+export class ServicesComponent implements OnInit {
+  
   constructor(
     private router: Router,
     private titulo: Title
     ) {
-      titulo.setTitle('PcStore - Detalle producto');
+      titulo.setTitle('PcStore - Home');
     }
 
   ngOnInit() {}

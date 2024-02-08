@@ -7,13 +7,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
 		integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
+
 <body>
 	<!-- Contenedor principal -->
 	<div class="background">
 		<!-- Logo -->
-		<img src="/assets/Imagenes/LOGO_rojo.png" alt="Logo" class="logo">
+		<img src="/assets/Imagenes/square_logo.png" alt="Logo" class="logo">
 
 		<!-- Contenedor del formulario -->
 		<div class="container">
@@ -34,7 +34,6 @@
 				<input type="text" id="username" name="username" class="input" [(ngModel)]="user" autocomplete="off" placeholder="cev" tabindex="1" required />
 
 				<!-- Campo de entrada de contraseña -->
-				<label for="password">Contraseña</label>
 				<label for="password">Contraseña</label>
 				<div class="password-container">
 				  <input type="{{ showPassword ? 'text' : 'password' }}" id="password" name="password" class="input" [(ngModel)]="password" autocomplete="off" placeholder="contraseña" tabindex="2" required />
