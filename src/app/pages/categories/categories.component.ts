@@ -36,7 +36,7 @@ export class CategoriesComponent {
     private router: Router,
     private titulo: Title
     ) {
-      titulo.setTitle('PcStore - Categorías');
+      titulo.setTitle('PcStore');
     }
 
     ngOnInit() {}

@@ -16,6 +16,7 @@ export class LoginComponent {
     { username: 'owner', password: 'owner' },
     { username: 'dani', password: 'dani' },
     { username: 'javi', password: 'javi' },
+    { username: 'saul', password: 'saul' },
     { username: 'david', password: 'david' }
   ];
 

@@ -36,7 +36,7 @@ export class CartComponent {
     private router: Router,
     private titulo: Title
     ) {
-      titulo.setTitle('PcStore - Carrito');
+      titulo.setTitle('PcStore');
     }
 
     ngOnInit() {}

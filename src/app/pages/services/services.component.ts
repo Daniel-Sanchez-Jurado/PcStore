@@ -13,7 +13,7 @@ export class ServicesComponent implements OnInit {
     private router: Router,
     private titulo: Title
     ) {
-      titulo.setTitle('PcStore - Home');
+      titulo.setTitle('PcStore');
     }
 
   ngOnInit() {}
