@@ -57,13 +57,13 @@
       <div class="container">
         <div class="product-info-container">
           <div class="product-images">
-            <img src="/assets/Imagenes/Raton1.png" alt="Ratón Gaiming">
+            <img src="{{article.image}}" alt="Ratón Gaiming">
           </div>
           <div class="product-info">
-            <h1>Ratón Gaiming</h1>
-            <p>Este ratón para gaming es perfecto para cualquier jugador de PC que busque precisión y velocidad. Con una tasa de sondeo de hasta 1000 Hz y una sensibilidad ajustable hasta 6000 DPI, este ratón es capaz de proporcionar la mejor experiencia de juego posible. Además, su diseño ergonómico y sus 6 botones programables lo hacen muy cómodo y versátil.</p>
-            <p>Precio: 50.00€</p>
-            <button class="button_1">Agregar al carrito</button>
+            <h1>{{article.name}}</h1>
+            <p>{{article.description}}.</p>
+            <p>Precio: {{article.price}}€</p>
+            <button (click)="this.onClickAdd(article)" class="button_1">Agregar al carrito</button>
           </div>
         </div>
       </div>

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterForm } from '../../models/registerForm';
 import { Title } from '@angular/platform-browser';
+import { Article } from 'src/app/models/article';
+import { ArticlesService } from '../services/articles.service';
 
 interface Producto {
   id: number;
@@ -17,6 +19,10 @@ interface Producto {
 })
 export class CartComponent {
   productos: Producto[] = [];
+
+  cart: Article[];
+  totalPrice: number;
+  articlePrice: number;
 
   eliminarProducto(producto: Producto) {
     const index = this.productos.findIndex(p => p.id === producto.id);
@@ -34,15 +40,25 @@ export class CartComponent {
   }
   constructor(
     private router: Router,
-    private titulo: Title
+    private titulo: Title,
+    private articleService: ArticlesService
     ) {
       titulo.setTitle('PcStore - Carrito');
+      this.cart = this.articleService.cart;
+      this.totalPrice = 0
+      this.articlePrice = 0
     }
 
-    ngOnInit() {}
+  ngOnInit() {
+    for (let i = 0; i < this.cart.length; i++) {
+      this.articlePrice = this.cart[i].price;
+      this.totalPrice = parseFloat((this.totalPrice + this.articlePrice).toFixed(2));
+    }
+
+  }
   
-  public onClickProduct(): void {
-    this.router.navigate(['/detail']);
+  public onClickProduct(article: Article): void {
+    this.router.navigate(['/detail'], { state: { article: article } });
   }
 
   public onClickCart(): void {

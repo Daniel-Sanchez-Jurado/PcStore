@@ -12,7 +12,7 @@ import { NgModule } from '@angular/core';
     FormsModule
   ],
   exports: [
-    // Se exporta RegisterComponent para poderutilizarlo en cualquier sitio
+    // Se exporta DetailComponent para poderutilizarlo en cualquier sitio
     DetailComponent],
   providers: [],
 })

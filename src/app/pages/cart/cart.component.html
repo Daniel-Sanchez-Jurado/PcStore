@@ -80,82 +80,19 @@
             <button type="button" class="btn  btn-block btn-lg">Vaciar carrito</button>
           </div>  
 
-          <div class="card rounded-3 mb-4">
+          <div class="card rounded-3 mb-4" *ngFor="let article of this.cart">
             <div class="card-body p-4">
               <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-2 col-lg-2 col-xl-2">
                   <img
-                    src="https://thumb.pccomponentes.com/w-530-530/articles/31/315684/1277-tempest-doom-rgb-h-teclado-mecanico.jpg"
+                    src="{{article.image}}"
                     class="img-fluid rounded-3" alt="Cotton T-shirt">
                 </div>
                 <div class="col-md-3 col-lg-3 col-xl-3">
-                  <p class="lead fw-normal mb-2"><strong>Tempest Doom H-Mech Teclado RGB</strong></p>
+                  <p class="lead fw-normal mb-2"><strong>{{article.name}}</strong></p>
                 </div>
                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 class="mb-0">21.99€</h5>
-                </div>
-                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                  <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card rounded-3 mb-4">
-            <div class="card-body p-4">
-              <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-2 col-lg-2 col-xl-2">
-                  <img
-                    src="https://thumb.pccomponentes.com/w-530-530/articles/1064/10643195/1123-msi-g27cq4-e2-27-led-wqhd-170hz-freesync-premium-curva.jpg"
-                    class="img-fluid rounded-3" alt="Cotton T-shirt">
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3">
-                  <p class="lead fw-normal mb-2"><strong>MSI G27CQ4 E2 27 LED WQHD 170Hz FreeSync Premium Curva</strong></p>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 class="mb-0">286.99€</h5>
-                </div>
-                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                  <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card rounded-3 mb-4">
-            <div class="card-body p-4">
-              <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-2 col-lg-2 col-xl-2">
-                  <img
-                    src="https://img.pccomponentes.com/articles/31/310369/1795-newskill-eos-ivory-raton-gaming-professional-rgb-16000dpi-blanco-review.jpg"
-                    class="img-fluid rounded-3" alt="Cotton T-shirt">
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3">
-                  <p class="lead fw-normal mb-2"><strong>Newskill Eos Ivory Ratón Gaming Professional RGB 16000DPI Blanco</strong></p>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 class="mb-0">49.95€</h5>
-                </div>
-                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                  <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card rounded-3 mb-4">
-            <div class="card-body p-4">
-              <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-2 col-lg-2 col-xl-2">
-                  <img
-                    src="https://img.pccomponentes.com/articles/10/107036/xonar-x6-main2.jpg"
-                    class="img-fluid rounded-3" alt="Cotton T-shirt">
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3">
-                  <p class="lead fw-normal mb-2"><strong>BG Xonar X6 Auriculares Gaming 7.1</strong></p>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 class="mb-0">20.99€</h5>
+                  <h5 class="mb-0">{{article.price}}€</h5>
                 </div>
                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                   <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
@@ -168,7 +105,7 @@
             <div class="card-body">
               <button type="button" class="btn btn-block btn-lg">Finalizar compra</button>
             </div>
-            <h4>Total: 379.79€</h4>
+            <h4>Total: {{totalPrice}}€</h4>
           </div>
 
         </div>

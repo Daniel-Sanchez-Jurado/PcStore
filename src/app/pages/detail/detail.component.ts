@@ -2,6 +2,9 @@ import { Router } from '@angular/router';
 import { RegisterForm } from '../../models/registerForm';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Article } from 'src/app/models/article';
+import { ActivatedRoute } from '@angular/router';
+import { ArticlesService } from '../services/articles.service';
 
 @Component({
   selector: 'detail',
@@ -10,17 +13,25 @@ import { Title } from '@angular/platform-browser';
   providers: [],
 })
 export class DetailComponent implements OnInit {
+  
+  public article: Article;
+
   constructor(
     private router: Router,
-    private titulo: Title
+    private route: ActivatedRoute,
+    private titulo: Title,
+    private articleService: ArticlesService
     ) {
       titulo.setTitle('PcStore - Detalle producto');
+      this.article = history.state.article;
     }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.article.name);
+  }
 
-  public onClickProduct(): void {
-    this.router.navigate(['/detail']);
+  public onClickAdd(article: Article): void {
+    this.articleService.addArticleToCart(article);
   }
 
   public onClickCart(): void {

@@ -1,6 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ArticlesService } from '../services/articles.service';
+import { Article } from 'src/app/models/article';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +11,26 @@ import { Title } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
   
+  articles: Article[];
+
   constructor(
     private router: Router,
-    private titulo: Title
+    private titulo: Title,
+    private articleService: ArticlesService
     ) {
       titulo.setTitle('PcStore - Home');
+      this.articles = this.articleService.getArticles();
     }
+  
+  ngOnInit() {
+  }
 
-  ngOnInit() {}
+  public onClickProduct(article: Article): void {
+    this.router.navigate(['/detail'], { state: { article: article } });
+  }
 
-  public onClickProduct(): void {
-    this.router.navigate(['/detail']);
+  public onClickAdd(article: Article): void {
+    this.articleService.addArticleToCart(article);
   }
 
   public onClickCart(): void {

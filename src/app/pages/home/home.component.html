@@ -76,123 +76,24 @@
       <!-- Usamos la clase products-grid para crear una tabla de productos con flexbox -->
       <div class="products-grid"> 
         
+
+
+        <!-- MUESTRA LOS ARTICULOS DEL ARRAY -->
         <!-- Usamos la clase product-card para crear una tarjeta de producto con una imagen, un título, un precio y un botón -->
-        <div (click)="this.onClickProduct()" class="product-card"> 
-          <img alt="Producto 1" src="/assets/Imagenes/Raton1.png"> 
-          <h3>Ratón Gaiming</h3>
+        <div (click)="this.onClickProduct(article)" class="product-card" *ngFor="let article of this.articles"> 
+          <img alt="Producto 1" src="{{article.image}}"> 
+          <h3>{{article.name}}</h3>
           <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
           <div class="card-footer">
-            <p>Precio: 50.00€</p> 
-            <button class="button_2">
+            <p>Precio: {{article.price}}€</p> 
+            <button (click)="this.onClickAdd(article)" class="button_2" >
               <i class="fa fa-shopping-cart"></i> 
               Agregar al carrito
             </button> 
           </div>
         </div> 
 
-        <div (click)="this.onClickProduct()" class="product-card">
-          <img alt="Producto 2" src="/assets/Imagenes/Cascos1.png"> 
-          <h3>Auriculares gaiming azul</h3>
-          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
-          <div class="card-footer">
-            <p>Precio: 75.00€</p> 
-            <button class="button_2">
-              <i class="fa fa-shopping-cart"></i> 
-              Agregar al carrito
-            </button>  
-          </div>
-        </div> 
 
-        <div (click)="this.onClickProduct()" class="product-card"> 
-          <img alt="Producto 3" src="/assets/Imagenes/Cascos2.png">
-          <h3>Auriculares Gaiming Rojo</h3> 
-          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
-          <div class="card-footer">
-            <p>Precio: 70.00€</p> 
-            <button class="button_2">
-              <i class="fa fa-shopping-cart"></i> 
-              Agregar al carrito
-            </button> 
-          </div>
-        </div> 
-
-        <div (click)="this.onClickProduct()" class="product-card">
-          <img alt="Producto 4" src="/assets/Imagenes/Teclado1.png"> 
-          <h3>Teclado Gaiming</h3> 
-          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
-          <div class="card-footer">
-            <p>Precio: 40.00€</p> 
-            <button class="button_2">
-              <i class="fa fa-shopping-cart"></i> 
-              Agregar al carrito
-            </button> 
-          </div>
-        </div> 
-
-        <div (click)="this.onClickProduct()" class="product-card">
-          <img alt="Producto 5" 	src="/assets/Imagenes/Raton2.png"> 
-          <h3>Ratón</h3> 
-          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
-          <div class="card-footer">
-            <p>Precio: 30.00€</p> 
-            <button class="button_2">
-              <i class="fa fa-shopping-cart"></i> 
-              Agregar al carrito
-            </button> 
-          </div>
-        </div> 
-
-        <div (click)="this.onClickProduct()" class="product-card">
-          <img alt="Producto 6" src="/assets/Imagenes/Monitor1.png"> 
-          <h3> Monitor 4K</h3> 
-          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
-          <div class="card-footer">
-            <p>Precio: 400.00€</p> 
-            <button class="button_2">
-              <i class="fa fa-shopping-cart"></i> 
-              Agregar al carrito
-            </button> 
-          </div>
-        </div> 
-
-        <div (click)="this.onClickProduct()" class="product-card">
-          <img alt="Producto 7" src="/assets/Imagenes/Raton3.png"> 
-          <h3>Raton blanco</h3> 
-          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
-          <div class="card-footer">
-            <p>Precio: 30.00€</p> 
-            <button class="button_2">
-              <i class="fa fa-shopping-cart"></i> 
-              Agregar al carrito
-            </button> 
-          </div>
-        </div> 
-
-        <div (click)="this.onClickProduct()" class="product-card">
-          <img alt="Producto 8" src="/assets/Imagenes/Monitor2.png"> 
-          <h3>Monitor LG</h3> 
-          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
-          <div class="card-footer">
-            <p>Precio: 200.00€</p> 
-            <button class="button_2">
-              <i class="fa fa-shopping-cart"></i> 
-              Agregar al carrito
-            </button> 
-          </div>
-        </div> 
-
-        <div (click)="this.onClickProduct()" class="product-card">
-          <img alt="Producto 9" src="/assets/Imagenes/Teclado2.png"> 
-          <h3>Teclado</h3> 
-          <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
-          <div class="card-footer">
-            <p>Precio: 20.00€</p> 
-            <button class="button_2">
-              <i class="fa fa-shopping-cart"></i> 
-              Agregar al carrito
-            </button> 
-          </div>
-        </div> 
       </div>
     </div>
   </section>

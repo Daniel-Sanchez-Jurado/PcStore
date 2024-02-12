@@ -4,7 +4,7 @@ import { DetailModule } from './detail/detail.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { NgModule } from '@angular/core';
-import { ServicesModule } from './services/services.module';
+import { ServicesModule } from './ourServices/services.module';
 
 @NgModule({
   declarations: [],

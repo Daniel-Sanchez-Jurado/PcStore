@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriesComponent } from './pages/categories/categories.component';
-import { ServicesComponent } from './pages/services/services.component';
+import { ServicesComponent } from './pages/ourServices/services.component';
 
 // Routing con las rutas de los dos componentes para poder navegar entre ellos, de inicio redirige a login.
 const routes: Routes = [
