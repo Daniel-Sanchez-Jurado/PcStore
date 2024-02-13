@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Article } from 'src/app/models/article';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AppEndPoints } from 'src/app/endpoints.compopnent';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +12,16 @@ import { Article } from 'src/app/models/article';
 export class ArticlesService {
   
   articlesFAKE: Article[];
+  articles: Article[];
   keyboards: Article[];
   mice: Article[];
   monitors: Article[];
   headphones: Article[]; 
   cart: Article[];
   
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
     this.articlesFAKE = [
       {
           "id": 1,
@@ -312,12 +320,35 @@ export class ArticlesService {
           "category": "Ratones"
       }
   ];
+    this.articles = [] 
     this.keyboards = this.filterByCategory(this.articlesFAKE, "Teclados");
     this.mice = this.filterByCategory(this.articlesFAKE, "Ratones");
     this.monitors = this.filterByCategory(this.articlesFAKE, "Monitores");
     this.headphones = this.filterByCategory(this.articlesFAKE, "Auriculares");  
     this.cart = []  
-  } 
+  }     
+
+  public getArticlesAPI(username: string, password: string): void {
+    const url = AppEndPoints.ARTICLESPCSTORE;
+    const headers = new HttpHeaders({
+      'Authorization': `Basic ${btoa(`${username}:${password}`)}`
+    });
+
+    this.http.get<Article[]>(url, { headers, withCredentials: true }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error en la solicitud:', error);
+        return throwError('Error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
+      })
+    ).subscribe(
+      response => {
+        this.articles = response;
+        console.log('Artículos cargados:', this.articles);
+      },
+      error => {
+        console.log('Error:', error);
+      }
+    );
+  }
 
   filterByCategory(articles: Article[], categoria: string): Article[] {
     return articles.filter(article => article.category === categoria);

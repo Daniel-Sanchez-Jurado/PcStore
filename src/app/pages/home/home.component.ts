@@ -16,13 +16,16 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private titulo: Title,
-    private articleService: ArticlesService
+    private articlesService: ArticlesService
     ) {
       titulo.setTitle('PcStore - Home');
-      this.articles = this.articleService.getArticles();
+      this.articles = this.articlesService.getArticles();
     }
   
   ngOnInit() {
+
+    this.articlesService.getArticlesAPI('dani', 'dashzhzsedni');
+
   }
 
   public onClickProduct(article: Article): void {
@@ -30,7 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   public onClickAdd(article: Article): void {
-    this.articleService.addArticleToCart(article);
+    this.articlesService.addArticleToCart(article);
   }
 
   public onClickCart(): void {

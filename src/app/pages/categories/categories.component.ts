@@ -28,20 +28,16 @@ export class CategoriesComponent {
   constructor(
     private router: Router,
     private titulo: Title,
-    private articleService: ArticlesService
+    private articlesService: ArticlesService
     ) {
       titulo.setTitle('PcStore - Categorías');
-      this.keyboards = this.articleService.getKeyboards();
-      this.mice = this.articleService.getMice();
-      this.monitors = this.articleService.getMonitors();
-      this.headphones = this.articleService.getHeadphones();
+      this.keyboards = this.articlesService.getKeyboards();
+      this.mice = this.articlesService.getMice();
+      this.monitors = this.articlesService.getMonitors();
+      this.headphones = this.articlesService.getHeadphones();
     }
 
   ngOnInit() {
-    console.log(this.keyboards);    
-    console.log(this.mice);
-    console.log(this.monitors);
-    console.log(this.headphones);
   }
   
   eliminarProducto(producto: Producto) {
@@ -60,12 +56,11 @@ export class CategoriesComponent {
   }
 
   public onClickProduct(article: Article): void {
-    console.log(article.name);
     this.router.navigate(['/detail'], { state: { article: article } });
   }
 
   public onClickAdd(article: Article): void {
-    this.articleService.addArticleToCart(article);
+    this.articlesService.addArticleToCart(article);
   }
   
   public onClickCart(): void {

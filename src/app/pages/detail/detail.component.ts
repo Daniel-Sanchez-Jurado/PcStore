@@ -20,7 +20,7 @@ export class DetailComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private titulo: Title,
-    private articleService: ArticlesService
+    private articlesService: ArticlesService
     ) {
       titulo.setTitle('PcStore - Detalle producto');
       this.article = history.state.article;
@@ -31,7 +31,7 @@ export class DetailComponent implements OnInit {
   }
 
   public onClickAdd(article: Article): void {
-    this.articleService.addArticleToCart(article);
+    this.articlesService.addArticleToCart(article);
   }
 
   public onClickCart(): void {

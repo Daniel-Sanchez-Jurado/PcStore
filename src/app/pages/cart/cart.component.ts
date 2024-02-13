@@ -41,10 +41,10 @@ export class CartComponent {
   constructor(
     private router: Router,
     private titulo: Title,
-    private articleService: ArticlesService
+    private articlesService: ArticlesService
     ) {
       titulo.setTitle('PcStore - Carrito');
-      this.cart = this.articleService.cart;
+      this.cart = this.articlesService.cart;
       this.totalPrice = 0
       this.articlePrice = 0
     }
