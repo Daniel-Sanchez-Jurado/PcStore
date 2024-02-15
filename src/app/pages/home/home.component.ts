@@ -5,13 +5,14 @@ import { ArticlesService } from '../services/articles.service';
 import { Article } from 'src/app/models/article';
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   
   articles: Article[];
+  cartCounter: number;
 
   constructor(
     private router: Router,
@@ -20,10 +21,11 @@ export class HomeComponent implements OnInit {
     ) {
       titulo.setTitle('PcStore - Home');
       this.articles = this.articlesService.getArticles();
+      this.cartCounter = this.articlesService.cartCounter;
     }
   
   ngOnInit() {
-
+    // FALLA AL HACER LA PETICIÓN
     this.articlesService.getArticlesAPI('dani', 'dashzhzsedni');
 
   }
@@ -34,6 +36,8 @@ export class HomeComponent implements OnInit {
 
   public onClickAdd(article: Article): void {
     this.articlesService.addArticleToCart(article);
+    this.articlesService.updateCartCounter(this.articlesService.cart.length);
+    this.cartCounter = this.articlesService.cartCounter
   }
 
   public onClickCart(): void {

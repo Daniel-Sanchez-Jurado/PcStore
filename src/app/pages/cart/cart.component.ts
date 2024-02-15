@@ -23,6 +23,7 @@ export class CartComponent {
   cart: Article[];
   totalPrice: number;
   articlePrice: number;
+  cartCounter: number;
 
   eliminarProducto(producto: Producto) {
     const index = this.productos.findIndex(p => p.id === producto.id);
@@ -45,8 +46,9 @@ export class CartComponent {
     ) {
       titulo.setTitle('PcStore - Carrito');
       this.cart = this.articlesService.cart;
-      this.totalPrice = 0
-      this.articlePrice = 0
+      this.totalPrice = 0;
+      this.articlePrice = 0;
+      this.cartCounter = this.articlesService.cartCounter;
     }
 
   ngOnInit() {

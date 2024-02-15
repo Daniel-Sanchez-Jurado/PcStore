@@ -23,7 +23,8 @@ export class CategoriesComponent {
   keyboards: Article[];
   mice: Article[];
   monitors: Article[];
-  headphones: Article[]; 
+  headphones: Article[];
+  cartCounter: number;
 
   constructor(
     private router: Router,
@@ -35,6 +36,7 @@ export class CategoriesComponent {
       this.mice = this.articlesService.getMice();
       this.monitors = this.articlesService.getMonitors();
       this.headphones = this.articlesService.getHeadphones();
+      this.cartCounter = this.articlesService.cartCounter;
     }
 
   ngOnInit() {
@@ -61,6 +63,8 @@ export class CategoriesComponent {
 
   public onClickAdd(article: Article): void {
     this.articlesService.addArticleToCart(article);
+    this.articlesService.updateCartCounter(this.articlesService.cart.length);
+    this.cartCounter = this.articlesService.cartCounter
   }
   
   public onClickCart(): void {

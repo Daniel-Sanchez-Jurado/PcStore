@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
-import { RouterModule } from '@angular/router';
 import { NavbarModule } from 'src/app/components/navbar/navbar.module';
+import { OurServicesComponent } from './ourServices.component';
 import { FooterModule } from 'src/app/components/footer/footer.module';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [OurServicesComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomeComponent
-      }
-    ]),
     NavbarModule,
     FooterModule
-  ]
+  ],
+  exports: [OurServicesComponent],
 })
-export class HomeModule { }
+export class OurServicesModule { }

@@ -7,50 +7,7 @@
 <body>
 
   <!-- Encabezado de la página con un logo y una barra de navegación -->
-  <header>
-    <div class="container">
-      <nav class="main-nav">
-        <!-- Menú de navegación -->
-        <ul id="menu">
-          <!-- Logo -->
-          <li class="logo">
-            <a (click)="this.onClickLogo()">
-              <!-- Usamos un atributo alt para la imagen -->
-              <img alt="Icono de PCStore" src="/assets/Imagenes/name_logo.png">
-            </a>
-          </li>
-          <!-- Opciones de menú -->
-          <li class="categorias">
-            <a (click)="this.onClickCategories()">Categorías</a>
-            <ul class="desplegable">
-              <li><a routerLink="/categorias/auriculares">Auriculares</a></li>
-              <li><a routerLink="/categorias/monitores">Monitores</a></li>
-              <li><a routerLink="/categorias/ratones">Ratones</a></li>
-              <li><a routerLink="/categorias/teclados">Teclados</a></li>
-            </ul>
-          </li>
-          <li><a (click)="this.onClickServices()">Servicios</a></li>    
-          <!-- Añadimos un elemento li con una clase main-nav__item-search -->
-          <li class="main-nav__item main-nav__item--search">
-            <!-- Dentro del elemento li, añadimos un formulario con un método get y una acción que llama a una función de búsqueda -->
-            <form method="get" action="/search">
-              <!-- Dentro del formulario, añadimos un input de tipo text con un nombre search y un placeholder que dice Buscar -->
-              <input type="text" name="search" placeholder="Buscar">
-              <!-- También añadimos un botón de tipo submit con una clase main-nav__link y un icono de una lupa -->
-              <button type="submit" class="main-nav__link">
-                <i class="fa fa-search"></i>
-              </button>
-            </form>
-          </li>  
-          <li>
-            <a (click)="this.onClickCart()" class="main-nav__link"><i class="fa fa-shopping-cart"></i>
-              <span class="cart-count">0</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <navbar></navbar>
 
   <main>
     <section class="product-details">
@@ -70,26 +27,5 @@
     </section>
   </main>
 
-  <!-- Creamos el pie de página con la zona de Contacto -->
-  <footer>
-    <!-- Div para la sección de contacto -->
-    <div class="contact-info">
-      <h3>Contacto</h3>
-      <p>Si tienes alguna pregunta o necesitas ayuda, por favor no dudes en contactarnos.</p>
-      <ul>
-        <li><i class="fas fa-map-marker-alt"></i> Dirección: Calle Gran Vía 12</li>
-        <li><i class="fas fa-envelope"></i> Correo electrónico: <a href="mailto:info@pcstore.com">info@pcstore.com</a></li>
-        <li><i class="fas fa-phone"></i> Teléfono: +123 456 789</li>
-      </ul>
-    </div>
-    <!-- Div para la sección de redes sociales -->
-    <div class="social-media">
-      <h3>Síguenos en las redes sociales</h3>
-      <ul>
-        <li><a href="https://api.whatsapp.com/send?phone=123456789"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-        <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
-        <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
-      </ul>
-    </div>
-  </footer>
+  <miFooter></miFooter>
 </body>

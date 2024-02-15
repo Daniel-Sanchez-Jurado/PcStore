@@ -1,19 +1,24 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ArticlesService } from '../services/articles.service';
 
 @Component({
-  selector: 'services',
-  templateUrl: './services.component.html',
-  styleUrls: ['./services.component.css'],
+  selector: 'ourServices',
+  templateUrl: './ourServices.component.html',
+  styleUrls: ['./ourServices.component.css'],
 })
-export class ServicesComponent implements OnInit {
+export class OurServicesComponent implements OnInit {
   
+  cartCounter: number;
+
   constructor(
     private router: Router,
-    private titulo: Title
+    private titulo: Title,
+    private articlesService: ArticlesService
     ) {
       titulo.setTitle('PcStore - Home');
+      this.cartCounter = this.articlesService.cartCounter;
     }
 
   ngOnInit() {}

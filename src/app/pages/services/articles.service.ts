@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Article } from 'src/app/models/article';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { AppEndPoints } from 'src/app/endpoints.compopnent';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -18,7 +18,9 @@ export class ArticlesService {
   monitors: Article[];
   headphones: Article[]; 
   cart: Article[];
-  
+  cartCounter: number;  
+  cartCounterSubject: Subject<number> = new Subject<number>();
+
   constructor(
     private http: HttpClient
   ) {
@@ -325,7 +327,8 @@ export class ArticlesService {
     this.mice = this.filterByCategory(this.articlesFAKE, "Ratones");
     this.monitors = this.filterByCategory(this.articlesFAKE, "Monitores");
     this.headphones = this.filterByCategory(this.articlesFAKE, "Auriculares");  
-    this.cart = []  
+    this.cart = [] 
+    this.cartCounter = this.cart.length    
   }     
 
   public getArticlesAPI(username: string, password: string): void {
@@ -337,6 +340,7 @@ export class ArticlesService {
     this.http.get<Article[]>(url, { headers, withCredentials: true }).pipe(
       catchError((error: HttpErrorResponse) => {
         console.error('Error en la solicitud:', error);
+        console.log('Status code:', error.status);
         return throwError('Error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
       })
     ).subscribe(
@@ -348,6 +352,11 @@ export class ArticlesService {
         console.log('Error:', error);
       }
     );
+  }
+
+  updateCartCounter(counter: number): void {
+    this.cartCounter = counter;
+    this.cartCounterSubject.next(this.cartCounter);
   }
 
   filterByCategory(articles: Article[], categoria: string): Article[] {

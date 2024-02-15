@@ -29,7 +29,6 @@ header {
   height: 100%;
 }
 
-
 .logo img {
   max-width: 100%; /* Para que el logo se adapte al tamaño del contenedor */
   vertical-align: middle; /* Agregamos esta propiedad para alinear verticalmente el logo */
@@ -73,17 +72,26 @@ header {
 }
 
 /* Estilos para el icono de carrito */
+.main-nav__link {
+  position: relative;
+}
+
+/* Estilos para el icono de carrito */
 .cart-count {
   position: absolute;
   top: -10px;
-  right: -10px;
+  right: -20px;
   background-color: red;
   color: white;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
+}
+  
+main {
+  padding-top: 100px;
 }
 
 /* Media query para hacer la barra de navegación más flexible */

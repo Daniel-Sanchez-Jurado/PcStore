@@ -1,0 +1,121 @@
+    /* Estilos para el encabezado y la barra de navegación */
+  header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed; /* Hacer que el encabezado sea fijo */
+    top: 0; /* Fijar el encabezado en la parte superior */
+    width: 100%; /* Asegurarse de que el encabezado ocupe todo el ancho */
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+  }
+
+  /* Estilos para los enlaces de la barra de navegación */
+  #menu li {
+    display: inline-block;
+    padding: 1rem 1rem 0rem 1rem;
+  }
+  
+  /* Estilos para los enlaces de la barra de navegación */
+  #menu li ul li {
+    display: inline-block;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+  
+  /* Estilos para los enlaces de la barra de navegación */
+  #menu li a {
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Quitamos el subrayado */
+  }
+  
+  /* Estilos para el logo */
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+    width: 200px;
+  } 
+  
+  .logo img {
+    max-width: 100%; /* Para que el logo se adapte al tamaño del contenedor */
+    vertical-align: middle; /* Agregamos esta propiedad para alinear verticalmente el logo */
+  }
+  
+  /* Estilos para los enlaces de categorías */
+  .categorias {
+    position: relative; /* Para posicionar el menú desplegable */
+  }
+  
+  /* Estilos para el menú desplegable */
+  .desplegable {
+    display: none; /* Ocultamos el menú por defecto */
+    position: absolute; /* Lo posicionamos encima de la opción de menú */
+    top: 100%; /* Colocamos el menú debajo de la opción de menú */
+    left: 0; /* Lo alineamos a la izquierda */
+    background-color: black; /* Fondo negro para el menú */
+  }
+  
+  /* Mostramos el menú desplegable al pasar el ratón sobre la opción de menú */
+  .categorias:hover .desplegable {
+    display: block;
+  }
+  
+  /* Estilos para los elementos del menú desplegable */
+  .desplegable li {
+    display: block; /* Mostramos los elementos uno debajo del otro */
+    padding: 0.5rem; /* Espacio entre los elementos */
+  }
+  
+  /* Estilos para el botón de búsqueda */
+  .main-nav__item--search button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Estilos para el icono de búsqueda */
+  .main-nav__item--search i {
+    color: white;
+  }
+
+  /* Estilos para el icono de carrito */
+  .main-nav__link {
+    position: relative;
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    font-size: 11px;
+  }  
+  
+  main {
+    padding-top: 100px;
+  }
+  
+  /* Media query para hacer la barra de navegación más flexible */
+  @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+        align-items: center;
+    }
+  
+    #menu li {
+      display: block;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    main {
+      padding-top: 280px;
+    }
+  }

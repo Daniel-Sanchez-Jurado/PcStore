@@ -5,132 +5,72 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 </head>
 <body>
-
   <!-- Encabezado de la página con un logo y una barra de navegación -->
-  <header>
-    <div class="container">
-      <nav class="main-nav">
-        <!-- Menú de navegación -->
-        <ul id="menu">
-          <!-- Logo -->
-          <li class="logo">
-            <a (click)="this.onClickLogo()">
-              <!-- Usamos un atributo alt para la imagen -->
-              <img alt="Icono de PCStore" src="/assets/Imagenes/name_logo.png">
-            </a>
-          </li>
-          <!-- Opciones de menú -->
-          <li class="categorias">
-            <a (click)="this.onClickCategories()">Categorías</a>
-            <ul class="desplegable">
-              <li><a routerLink="/categorias/auriculares">Auriculares</a></li>
-              <li><a routerLink="/categorias/monitores">Monitores</a></li>
-              <li><a routerLink="/categorias/ratones">Ratones</a></li>
-              <li><a routerLink="/categorias/teclados">Teclados</a></li>
-            </ul>
-          </li>
-          <li><a (click)="this.onClickServices()">Servicios</a></li>
-          <!-- Añadimos un elemento li con una clase main-nav__item-search -->
-          <li class="main-nav__item main-nav__item--search">
-            <!-- Dentro del elemento li, añadimos un formulario con un método get y una acción que llama a una función de búsqueda -->
-            <form method="get" action="/search">
-              <!-- Dentro del formulario, añadimos un input de tipo text con un nombre search y un placeholder que dice Buscar -->
-              <input type="text" name="search" placeholder="Buscar">
-              <!-- También añadimos un botón de tipo submit con una clase main-nav__link y un icono de una lupa -->
-              <button type="submit" class="main-nav__link">
-                <i class="fa fa-search"></i>
-              </button>
-            </form>
-          </li>
-          <li>
-            <a (click)="this.onClickCart()" class="main-nav__link"><i class="fa fa-shopping-cart"></i>
-              <span class="cart-count">0</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+  <navbar></navbar>
+
+  <!-- Creamos el Cuerpo de la página-->
+  <main>	
+    <!-- Contenido principal -->
+    <div *ngIf="productos.length > 0; else emptyCart">
+      <h2>Carrito de Compras</h2>
+      <ul>
+        <li *ngFor="let producto of productos">
+          <img [src]="producto.imagen" [alt]="producto.nombre" />
+          <span>{{ producto.nombre }}</span>
+          <button (click)="eliminarProducto(producto)">Eliminar</button>
+        </li>
+      </ul>
+      <button (click)="eliminarTodosLosProductos()">Eliminar todos los productos</button>
+      <button (click)="realizarPedido()">Realizar Pedido</button>
     </div>
-  </header>
 
-  <!-- Contenido principal -->
-  <div *ngIf="productos.length > 0; else emptyCart">
-    <h2>Carrito de Compras</h2>
-    <ul>
-      <li *ngFor="let producto of productos">
-        <img [src]="producto.imagen" [alt]="producto.nombre" />
-        <span>{{ producto.nombre }}</span>
-        <button (click)="eliminarProducto(producto)">Eliminar</button>
-      </li>
-    </ul>
-    <button (click)="eliminarTodosLosProductos()">Eliminar todos los productos</button>
-    <button (click)="realizarPedido()">Realizar Pedido</button>
-  </div>
+    <ng-template #emptyCart>
+      <!--<p>No hay productos en el carrito.</p>--> 
+    </ng-template>
 
-  <ng-template #emptyCart>
-    <!--<p>No hay productos en el carrito.</p>--> 
-  </ng-template>
+    <section class="h-100">
+      <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-10">
 
-  <section class="h-100">
-    <div class="container h-100 py-5">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-10">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h3 class="fw-normal mb-0 text-black"><strong>Carrito de compra</strong></h3>  
+              <button type="button" class="btn  btn-block btn-lg">Vaciar carrito</button>
+            </div>  
 
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-normal mb-0 text-black"><strong>Carrito de compra</strong></h3>  
-            <button type="button" class="btn  btn-block btn-lg">Vaciar carrito</button>
-          </div>  
-
-          <div class="card rounded-3 mb-4" *ngFor="let article of this.cart">
-            <div class="card-body p-4">
-              <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-2 col-lg-2 col-xl-2">
-                  <img
-                    src="{{article.image}}"
-                    class="img-fluid rounded-3" alt="Cotton T-shirt">
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3">
-                  <p class="lead fw-normal mb-2"><strong>{{article.name}}</strong></p>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 class="mb-0">{{article.price}}€</h5>
-                </div>
-                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                  <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
+            <div class="card rounded-3 mb-4" *ngFor="let article of this.cart">
+              <div class="card-body p-4">
+                <div class="row d-flex justify-content-between align-items-center">
+                  <div (click)="this.onClickProduct(article)" class="col-md-2 col-lg-2 col-xl-2">
+                    <img
+                      src="{{article.image}}"
+                      class="img-fluid rounded-3" alt="Cotton T-shirt">
+                  </div>
+                  <div (click)="this.onClickProduct(article)" class="col-md-3 col-lg-3 col-xl-3">
+                    <p class="lead fw-normal mb-2"><strong>{{article.name}}</strong></p>
+                  </div>
+                  <div (click)="this.onClickProduct(article)" class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <h5 class="mb-0">{{article.price}}€</h5>
+                  </div>
+                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <div class="card-body">
-              <button type="button" class="btn btn-block btn-lg">Finalizar compra</button>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="card-body">
+                <button type="button" class="btn btn-block btn-lg">Finalizar compra</button>
+              </div>
+              <h4>Total: {{totalPrice}}€</h4>
             </div>
-            <h4>Total: {{totalPrice}}€</h4>
-          </div>
 
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Pie de página -->
-  <footer>
-    <div class="contact-info" id="contact">
-      <h3>Contacto</h3>
-      <p>Si tienes alguna pregunta o necesitas ayuda, por favor no dudes en contactarnos.</p>
-      <ul>
-        <li><i class="fas fa-map-marker-alt"></i> Dirección: Calle Gran Vía 12</li>
-        <li><i class="fas fa-envelope"></i> Correo electrónico: <a href="mailto:info@pcstore.com">info@pcstore.com</a></li>
-        <li><i class="fas fa-phone"></i> Teléfono: +123 456 789</li>
-      </ul>
-    </div>
-    <div class="social-media">
-      <h3>Síguenos en las redes sociales</h3>
-      <ul>
-        <li><a href="https://api.whatsapp.com/send?phone=123456789"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-        <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
-        <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
-      </ul>
-    </div>
-  </footer>
+    <miFooter></miFooter>
+  </main>
 </body>

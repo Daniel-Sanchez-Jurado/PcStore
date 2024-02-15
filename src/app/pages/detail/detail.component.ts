@@ -15,6 +15,7 @@ import { ArticlesService } from '../services/articles.service';
 export class DetailComponent implements OnInit {
   
   public article: Article;
+  cartCounter: number;
 
   constructor(
     private router: Router,
@@ -24,6 +25,7 @@ export class DetailComponent implements OnInit {
     ) {
       titulo.setTitle('PcStore - Detalle producto');
       this.article = history.state.article;
+      this.cartCounter = this.articlesService.cartCounter;
     }
 
   ngOnInit() {
@@ -32,6 +34,8 @@ export class DetailComponent implements OnInit {
 
   public onClickAdd(article: Article): void {
     this.articlesService.addArticleToCart(article);
+    this.articlesService.updateCartCounter(this.articlesService.cart.length);
+    this.cartCounter = this.articlesService.cartCounter
   }
 
   public onClickCart(): void {

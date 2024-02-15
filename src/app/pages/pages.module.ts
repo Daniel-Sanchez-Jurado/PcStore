@@ -4,7 +4,9 @@ import { DetailModule } from './detail/detail.module';
 import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { NgModule } from '@angular/core';
-import { ServicesModule } from './ourServices/services.module';
+import { OurServicesModule } from './ourServices/ourServices.module';
+import { NavbarModule } from '../components/navbar/navbar.module';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [],
@@ -14,7 +16,7 @@ import { ServicesModule } from './ourServices/services.module';
     DetailModule,
     CartModule,
     CategoriesModule,
-    ServicesModule
+    OurServicesModule
   ],
   exports: [
     LoginModule, 
@@ -22,7 +24,7 @@ import { ServicesModule } from './ourServices/services.module';
     DetailModule,
     CartModule,
     CategoriesModule,
-    ServicesModule
+    OurServicesModule
   ],
   providers: [],
 })
