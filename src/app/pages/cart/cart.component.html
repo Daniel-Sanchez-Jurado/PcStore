@@ -35,30 +35,34 @@
 
             <div class="d-flex justify-content-between align-items-center mb-4">
               <h3 class="fw-normal mb-0 text-black"><strong>Carrito de compra</strong></h3>  
-              <button type="button" class="btn  btn-block btn-lg">Vaciar carrito</button>
+              <button (click)="this.onClickEmptyCart()" type="button" class="btn  btn-block btn-lg">Vaciar carrito</button>
             </div>  
-
-            <div class="card rounded-3 mb-4" *ngFor="let article of this.cart">
-              <div class="card-body p-4">
-                <div class="row d-flex justify-content-between align-items-center">
-                  <div (click)="this.onClickProduct(article)" class="col-md-2 col-lg-2 col-xl-2">
-                    <img
-                      src="{{article.image}}"
-                      class="img-fluid rounded-3" alt="Cotton T-shirt">
-                  </div>
-                  <div (click)="this.onClickProduct(article)" class="col-md-3 col-lg-3 col-xl-3">
-                    <p class="lead fw-normal mb-2"><strong>{{article.name}}</strong></p>
-                  </div>
-                  <div (click)="this.onClickProduct(article)" class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                    <h5 class="mb-0">{{article.price}}€</h5>
-                  </div>
-                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                    <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg trash"></i></a>
+            <hr>
+            <div class=" container-articles">
+              <div class="card rounded-3 mb-4" *ngFor="let article of this.cart; let i = index">
+                <div class="card-body p-4">
+                  <div class="row d-flex justify-content-between align-items-center">
+                    <div (click)="this.onClickProduct(article)" class="col-md-2 col-lg-2 col-xl-2">
+                      <img
+                        src="{{article.image}}"
+                        class="img-fluid rounded-3" alt="Cotton T-shirt">
+                    </div>
+                    <div (click)="this.onClickProduct(article)" class="col-md-3 col-lg-3 col-xl-3">
+                      <p class="lead fw-normal mb-2"><strong>{{article.name}}</strong></p>
+                    </div>
+                    <div (click)="this.onClickProduct(article)" class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                      <h5 class="mb-0">{{article.price}}€</h5>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a (click)="this.onClickDeleteArticle(i, article.price)" href="javascript:void(0)" class="text-danger">
+                        <i class="fas fa-trash fa-lg trash"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
+            <hr>  
             <div class="d-flex justify-content-between align-items-center mb-4">
               <div class="card-body">
                 <button type="button" class="btn btn-block btn-lg">Finalizar compra</button>
@@ -69,8 +73,7 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <miFooter></miFooter>
+    </section>    
   </main>
+  <miFooter></miFooter>
 </body>

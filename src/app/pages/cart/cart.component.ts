@@ -39,6 +39,7 @@ export class CartComponent {
   realizarPedido() {
     // Aquí puedes implementar la lógica para realizar el pedido, como enviar los productos al servidor, etc.
   }
+
   constructor(
     private router: Router,
     private titulo: Title,
@@ -77,5 +78,21 @@ export class CartComponent {
 
   public onClickServices(): void {
     this.router.navigate(['/services']);
+  }
+
+  public onClickDeleteArticle(index: number, price: number): void {
+    this.articlesService.cart.splice(index, 1);
+    this.cart = this.articlesService.cart;
+    this.totalPrice = parseFloat((this.totalPrice - price).toFixed(2));
+    this.cartCounter = this.cartCounter - 1;    
+    this.articlesService.updateCartCounter(this.cartCounter);
+  }
+
+  public onClickEmptyCart(): void {
+    this.cart = [];
+    this.articlesService.cart = [];
+    this.totalPrice = 0;
+    this.cartCounter = 0;
+    this.articlesService.updateCartCounter(this.cartCounter);
   }
 }
