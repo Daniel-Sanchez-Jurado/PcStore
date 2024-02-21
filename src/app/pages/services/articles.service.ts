@@ -149,7 +149,7 @@ export class ArticlesService {
           "id": 16,
           "name": "MSI Optix G24C4 23.6 LED FullHD 144Hz Freesync Curva",
           "price": 186.98,
-          "image": "https://thumb.pccomponentes.com/w-530-530/articles/23/231904/1.jpg",
+          "image": "https://img.pccomponentes.com/articles/23/231904/1369-msi-optix-g24c4-236-led-fullhd-144hz-freesync-curva-comprar.jpg",
           "description": "Los monitores Optix utilizan un panel de pantalla curva que tiene una velocidad de curvatura de R1500, que es la más cómoda y adecuada para una amplia gama de aplicaciones, desde computación general hasta juegos.",
           "category": "Monitores"
       },

@@ -95,4 +95,9 @@ export class CartComponent {
     this.cartCounter = 0;
     this.articlesService.updateCartCounter(this.cartCounter);
   }
+
+  public onClickFinalisePurchase(): void {
+    this.router.navigate(['/login']);
+    // Hacer lo que se quiera al finalizar compra
+  }
 }

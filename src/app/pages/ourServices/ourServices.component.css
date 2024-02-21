@@ -1,12 +1,7 @@
   main {
     padding: 100px 0px 100px 0px;
   }
-
-  body {
-    height: 100vh; /* Adaptar al 100% de la altura de la pantalla */
-    min-height: min-content;
-  }
-  
+    
   /* Media query para hacer la barra de navegación más flexible */
   @media screen and (max-width: 768px) {
     header {

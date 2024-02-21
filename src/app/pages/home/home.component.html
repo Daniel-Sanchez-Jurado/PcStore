@@ -21,7 +21,7 @@
     <br>
     <section id="showcase">
       <div class="container">
-        <h1>Bienvenido a PCStore</h1>
+        <h2>Bienvenido a PCStore</h2>
           <p>En PCStore nos dedicamos a proporcionar a nuestros clientes los mejores componentes y periféricos para su ordenador. Ofrecemos una amplia variedad de productos de alta calidad a 	precios competitivos para satisfacer todas tus necesidades informáticas. Ya seas un gamer, un profesional creativo o simplemente alguien que busca mejorar su experiencia informática, en PCStore tenemos todo lo que necesitas.</p>	
       </div>
     </section>
@@ -38,7 +38,7 @@
           <div class="product-card" *ngFor="let article of this.articles"> 
             <div (click)="this.onClickProduct(article)" class="card-body">
               <img alt="Producto 1" src="{{article.image}}"> 
-              <h3>{{article.name}}</h3>
+              <h3>{{article.name| slice:0:30}}</h3>
               <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
             </div>
             <div class="card-footer">

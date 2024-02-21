@@ -30,7 +30,7 @@
               <div class="product-card" *ngFor="let article of this.headphones"> 
                 <div (click)="this.onClickProduct(article)" class="card-body">
                   <img alt="Producto 1" src="{{article.image}}"> 
-                  <h3>{{article.name}}</h3>
+                  <h3>{{article.name| slice:0:40}}</h3>
                   <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
                 </div>
                 <div class="card-footer">
@@ -53,7 +53,7 @@
               <div class="product-card" *ngFor="let article of this.monitors"> 
                 <div (click)="this.onClickProduct(article)" class="card-body">
                   <img alt="Producto 1" src="{{article.image}}"> 
-                  <h3>{{article.name}}</h3>
+                  <h3>{{article.name| slice:0:40}}</h3>
                   <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
                 </div>
                 <div class="card-footer">
@@ -76,7 +76,7 @@
               <div class="product-card" *ngFor="let article of this.mice"> 
                 <div (click)="this.onClickProduct(article)" class="card-body">
                   <img alt="Producto 1" src="{{article.image}}"> 
-                  <h3>{{article.name}}</h3>
+                  <h3>{{article.name| slice:0:40}}</h3>
                   <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
                 </div>
                 <div class="card-footer">
@@ -99,7 +99,7 @@
               <div class="product-card" *ngFor="let article of this.keyboards"> 
                 <div (click)="this.onClickProduct(article)" class="card-body">
                   <img alt="Producto 1" src="{{article.image}}"> 
-                  <h3>{{article.name}}</h3>
+                  <h3>{{article.name| slice:0:40}}</h3>
                   <!-- Elementos de precio y botón "Agregar al carrito" aquí -->
                 </div>
                 <div class="card-footer">

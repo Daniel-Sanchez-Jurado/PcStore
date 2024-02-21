@@ -12,7 +12,7 @@
   <main>	
     <!-- Contenido principal -->
     <div *ngIf="productos.length > 0; else emptyCart">
-      <h2>Carrito de Compras</h2>
+      <h1>Carrito de Compras</h1>
       <ul>
         <li *ngFor="let producto of productos">
           <img [src]="producto.imagen" [alt]="producto.nombre" />
@@ -65,7 +65,7 @@
             <hr>  
             <div class="d-flex justify-content-between align-items-center mb-4">
               <div class="card-body">
-                <button type="button" class="btn btn-block btn-lg">Finalizar compra</button>
+                <button (click)="this.onClickFinalisePurchase()" type="button" class="btn btn-block btn-lg">Finalizar compra</button>
               </div>
               <h4>Total: {{totalPrice}}€</h4>
             </div>
