@@ -11,18 +11,6 @@
   <!-- Creamos el Cuerpo de la página-->
   <main>	
     <!-- Contenido principal -->
-    <div *ngIf="productos.length > 0; else emptyCart">
-      <h1>Carrito de Compras</h1>
-      <ul>
-        <li *ngFor="let producto of productos">
-          <img [src]="producto.imagen" [alt]="producto.nombre" />
-          <span>{{ producto.nombre }}</span>
-          <button (click)="eliminarProducto(producto)">Eliminar</button>
-        </li>
-      </ul>
-      <button (click)="eliminarTodosLosProductos()">Eliminar todos los productos</button>
-      <button (click)="realizarPedido()">Realizar Pedido</button>
-    </div>
 
     <ng-template #emptyCart>
       <!--<p>No hay productos en el carrito.</p>--> 
@@ -34,7 +22,7 @@
           <div class="col-10">
 
             <div class="d-flex justify-content-between align-items-center mb-4">
-              <h3 class="fw-normal mb-0 text-black"><strong>Carrito de compra</strong></h3>  
+              <h2 class="fw-normal mb-0 text-black"><strong>Carrito de compra</strong></h2>  
               <button (click)="this.onClickEmptyCart()" type="button" class="btn  btn-block btn-lg">Vaciar carrito</button>
             </div>  
             <hr>
@@ -75,5 +63,5 @@
       </div>
     </section>    
   </main>
-  <miFooter></miFooter>
+  <miFooter id="miFooter"></miFooter>
 </body>

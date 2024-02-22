@@ -1,39 +1,38 @@
 import { Router } from '@angular/router';
-import { RegisterForm } from '../../models/registerForm';
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Article } from 'src/app/models/article';
-import { ActivatedRoute } from '@angular/router';
 import { ArticlesService } from '../services/articles.service';
+import { Article } from 'src/app/models/article';
 
 @Component({
-  selector: 'detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css'],
-  providers: [],
+  selector: 'search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css'],
 })
-export class DetailComponent implements OnInit {
-
-  public article: Article;
+export class SearchComponent implements OnInit {
+  
+  articles: Article[];
   cartCounter: number;
   bodyHeight: number;
 
+  public search: String;
+
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private titulo: Title,
     private articlesService: ArticlesService,
     private elementRef: ElementRef
     ) {
-      titulo.setTitle('PcStore - Detalle producto');
-      this.article = history.state.article;
-      this.cartCounter = this.articlesService.cartCounter;
+      titulo.setTitle('PcStore - Search');
+      this.articles = [];
+      this.cartCounter = this.articlesService.cartCounter;      
       this.bodyHeight = 0;
+      this.search = history.state.section;
     }
-
+  
   ngOnInit() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  } 
+  }
 
   ngAfterViewInit() {
     const bodyElement = document.body;
@@ -55,6 +54,10 @@ export class DetailComponent implements OnInit {
     } else {
       console.error('El elemento <body> no está definido');
     }
+  }
+
+  public onClickProduct(article: Article): void {
+    this.router.navigate(['/detail'], { state: { article: article } });
   }
 
   public onClickAdd(article: Article): void {

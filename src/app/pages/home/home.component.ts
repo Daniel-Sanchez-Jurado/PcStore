@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     }
   
   ngOnInit() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     // FALLA AL HACER LA PETICIÓN
     this.articlesService.getArticlesAPI('dani', 'dashzhzsedni');
 
@@ -38,21 +39,5 @@ export class HomeComponent implements OnInit {
     this.articlesService.addArticleToCart(article);
     this.articlesService.updateCartCounter(this.articlesService.cart.length);
     this.cartCounter = this.articlesService.cartCounter
-  }
-
-  public onClickCart(): void {
-    this.router.navigate(['/cart']);
-  }
-
-  public onClickLogo(): void {
-    this.router.navigate(['/home']);
-  }
-
-  public onClickCategories(): void {
-    this.router.navigate(['/categories']);
-  }
-
-  public onClickServices(): void {
-    this.router.navigate(['/services']);
   }
 }

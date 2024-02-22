@@ -26,12 +26,12 @@
           </li>
           <!-- Opciones de menú -->
           <li class="categorias">
-            <a (click)="this.onClickCategories()">Categorías</a>
+            <a (click)="this.onClickCategories('categorias')">Categorías</a>
             <ul class="desplegable">
-              <li><a routerLink="/categorias/auriculares">Auriculares</a></li>
-              <li><a routerLink="/categorias/monitores">Monitores</a></li>
-              <li><a routerLink="/categorias/ratones">Ratones</a></li>
-              <li><a routerLink="/categorias/teclados">Teclados</a></li>
+              <li><a (click)="this.onClickCategories('auriculares')">Auriculares</a></li>
+              <li><a (click)="this.onClickCategories('monitores')">Monitores</a></li>
+              <li><a (click)="this.onClickCategories('ratones')">Ratones</a></li>
+              <li><a (click)="this.onClickCategories('teclados')">Teclados</a></li>
             </ul>
           </li>
           <li><a (click)="this.onClickServices()">Servicios</a></li>  
@@ -42,7 +42,7 @@
               <!-- Dentro del formulario, añadimos un input de tipo text con un nombre search y un placeholder que dice Buscar -->
               <input type="text" name="search" placeholder="Buscar">
               <!-- También añadimos un botón de tipo submit con una clase main-nav__link y un icono de una lupa -->
-              <button type="submit" class="main-nav__link">
+              <button (click)="this.onClickSearch('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')" type="submit" class="main-nav__link">
                 <i class="fa fa-search"></i>
               </button>
             </form>

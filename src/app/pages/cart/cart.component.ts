@@ -5,40 +5,17 @@ import { Title } from '@angular/platform-browser';
 import { Article } from 'src/app/models/article';
 import { ArticlesService } from '../services/articles.service';
 
-interface Producto {
-  id: number;
-  nombre: string;
-  imagen: string;
-  precio: number;
-}
-
 @Component({
   selector: 'cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  productos: Producto[] = [];
 
   cart: Article[];
   totalPrice: number;
   articlePrice: number;
   cartCounter: number;
-
-  eliminarProducto(producto: Producto) {
-    const index = this.productos.findIndex(p => p.id === producto.id);
-    if (index !== -1) {
-      this.productos.splice(index, 1);
-    }
-  }
-
-  eliminarTodosLosProductos() {
-    this.productos = [];
-  }
-
-  realizarPedido() {
-    // Aquí puedes implementar la lógica para realizar el pedido, como enviar los productos al servidor, etc.
-  }
 
   constructor(
     private router: Router,
@@ -52,32 +29,17 @@ export class CartComponent {
       this.cartCounter = this.articlesService.cartCounter;
     }
 
-  ngOnInit() {
+  ngOnInit() {    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     for (let i = 0; i < this.cart.length; i++) {
       this.articlePrice = this.cart[i].price;
       this.totalPrice = parseFloat((this.totalPrice + this.articlePrice).toFixed(2));
     }
-
   }
   
   public onClickProduct(article: Article): void {
     this.router.navigate(['/detail'], { state: { article: article } });
-  }
-
-  public onClickCart(): void {
-    this.router.navigate(['/cart']);
-  }
-
-  public onClickLogo(): void {
-    this.router.navigate(['/home']);
-  }
-
-  public onClickCategories(): void {
-    this.router.navigate(['/categories']);
-  }
-
-  public onClickServices(): void {
-    this.router.navigate(['/services']);
   }
 
   public onClickDeleteArticle(index: number, price: number): void {

@@ -1,23 +1,7 @@
   main {
-    padding: 100px 0px 100px 0px;
+    padding-top: 100px;
   }
-
-  #galeria-app img {
-    max-height: 300px;
-    margin-right: 20px;
-    margin-top: 20px;
-  }
-
-  #galeria-web img {
-    max-width: 450px;
-    margin-right: 30px;
-    margin-top: 20px;
-  }
-
-  h6 {
-    margin-top: 30px;
-  }
-    
+  
   /* Media query para hacer la barra de navegación más flexible */
   @media screen and (max-width: 768px) {
     header {
@@ -29,6 +13,10 @@
       display: block;
       padding: 0.5rem;
       text-align: center;
+    }
+
+    main {
+      padding-top: 280px;
     }
   }  
   
@@ -141,6 +129,10 @@
     /* Hacer que las tarjetas de producto ocupen todo el ancho de la pantalla */
     .product-card {
       width: 100%;
+    }
+
+    main {
+      padding-top: 280px;
     }
   }
   

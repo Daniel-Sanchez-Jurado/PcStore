@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { OurServicesComponent } from './pages/ourServices/ourServices.component';
+import { SearchComponent } from './pages/search/search.component';
 
 // Routing con las rutas de los dos componentes para poder navegar entre ellos, de inicio redirige a login.
 const routes: Routes = [
@@ -15,12 +16,9 @@ const routes: Routes = [
   {path: 'detail', component: DetailComponent},
   {path: 'categories', component: CategoriesComponent},
   {path: 'services', component: OurServicesComponent},
+  {path: 'search', component: SearchComponent},
   {path: '**', redirectTo: 'login'},
   { path: '', component: HomeComponent },
-  { path: 'productos', component: HomeComponent },
-  { path: 'categorias', component: HomeComponent },
-  { path: 'servicios', component: HomeComponent },
-  { path: 'contacto', component: HomeComponent },
 ];
 
 @NgModule({

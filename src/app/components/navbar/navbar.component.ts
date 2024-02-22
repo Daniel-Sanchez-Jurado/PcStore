@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { ArticlesService } from '../../pages/services/articles.service';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,8 @@ export class NavbarComponent implements OnInit {
   cartCounterSubscription: Subscription;
 
   constructor(
-    private router: Router,
+    private router: Router, 
+    private route: ActivatedRoute,
     private articlesService: ArticlesService
     ) {
       this.cartCounter = this.articlesService.cartCounter;
@@ -25,14 +26,12 @@ export class NavbarComponent implements OnInit {
   
   ngOnInit() {
     this.cartCounter = this.articlesService.cartCounter;
-    // Te suscribes al observable para recibir actualizaciones del contador
     this.cartCounterSubscription = this.articlesService.cartCounterSubject.subscribe((counter: number) => {
       this.cartCounter = counter;
     });
   }
 
   ngOnDestroy() {
-    // Te desuscribes del observable para evitar pérdidas de memoria
     if (this.cartCounterSubscription) {
       this.cartCounterSubscription.unsubscribe();
     }
@@ -45,12 +44,29 @@ export class NavbarComponent implements OnInit {
   public onClickLogo(): void {
     this.router.navigate(['/home']);
   }
+  
+  public onClickCategories(section: string): void {
+    const componentName = this.route.component?.name;
 
-  public onClickCategories(): void {
-    this.router.navigate(['/categories']);
-  }
+    if (componentName === 'CategoriesComponent') {
+      const element = document.getElementById(section);
+
+      if (element) {        
+        const rect = element.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetY = rect.top + scrollTop - 100;
+        window.scrollTo({ top: targetY, behavior: 'auto' });
+      }
+    } else {     
+      this.router.navigate(['/categories'], { state: { section: section }});
+    }
+  }  
 
   public onClickServices(): void {
     this.router.navigate(['/services']);
+  }
+
+  public onClickSearch(search: String): void {
+    this.router.navigate(['/search'], { state: { search: search }});
   }
 }
