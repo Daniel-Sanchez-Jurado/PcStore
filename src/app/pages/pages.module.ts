@@ -5,8 +5,6 @@ import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { NgModule } from '@angular/core';
 import { OurServicesModule } from './ourServices/ourServices.module';
-import { NavbarModule } from '../components/navbar/navbar.module';
-import { ComponentsModule } from '../components/components.module';
 import { SearchModule } from './search/search.module';
 
 @NgModule({

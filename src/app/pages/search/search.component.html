@@ -33,7 +33,7 @@
 
           <!-- MUESTRA LOS ARTICULOS DEL ARRAY -->
           <!-- Usamos la clase product-card para crear una tarjeta de producto con una imagen, un título, un precio y un botón -->
-          <div class="product-card" *ngFor="let article of this.articles"> 
+          <div class="product-card" *ngFor="let article of this.searchArticles"> 
             <div (click)="this.onClickProduct(article)" class="card-body">
               <img alt="Producto 1" src="{{article.image}}"> 
               <h3>{{article.name| slice:0:30}}</h3>
@@ -48,6 +48,7 @@
             </div>
           </div> 
 
+          <h4 class="not-found" *ngIf="this.searchArticles.length == 0">Sin resultados</h4>
         </div>
       </div>
     </section>

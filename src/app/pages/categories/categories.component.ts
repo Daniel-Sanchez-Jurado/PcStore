@@ -31,26 +31,24 @@ export class CategoriesComponent {
       this.monitors = this.articlesService.getMonitors();
       this.headphones = this.articlesService.getHeadphones();
       this.cartCounter = this.articlesService.cartCounter;
-      this.section = history.state.section;
+      this.section = '';
     }
 
   ngOnInit() {
   }
 
   ngAfterViewInit(): void {
-    // Obtener la sección del estado de la navegación
-    this.section = history.state.section;
-    // Verificar si hay una sección para desplazarse
+    this.route.queryParams.subscribe(params => {
+      this.section = params['section'];
+    });
+    
     if (this.section) {
-      // Buscar el elemento con el ID correspondiente
       const element = document.getElementById(this.section.toString());
-      // Verificar si se encontró el elemento
+
       if (element) {
-        // Calcular la posición del elemento
         const rect = element.getBoundingClientRect();
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const targetY = rect.top + scrollTop - 100; // Desplazar 100px arriba
-        // Desplazarse al elemento y luego 100px arriba
+        const targetY = rect.top + scrollTop - 100;
         window.scrollTo({ top: targetY, behavior: 'smooth' });
       }
     }

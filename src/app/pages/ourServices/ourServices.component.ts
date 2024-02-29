@@ -17,7 +17,7 @@ export class OurServicesComponent implements OnInit {
     private titulo: Title,
     private articlesService: ArticlesService
     ) {
-      titulo.setTitle('PcStore - Home');
+      titulo.setTitle('PcStore - Servicios');
       this.cartCounter = this.articlesService.cartCounter;
     }
 

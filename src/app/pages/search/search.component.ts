@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ArticlesService } from '../services/articles.service';
@@ -12,26 +12,36 @@ import { Article } from 'src/app/models/article';
 export class SearchComponent implements OnInit {
   
   articles: Article[];
-  cartCounter: number;
+  searchArticles: Article[];
+  cartCounter: number;/////////ARREGLAR EL COTADOR DE PRODUCTOS
   bodyHeight: number;
 
   public search: String;
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private titulo: Title,
     private articlesService: ArticlesService,
     private elementRef: ElementRef
     ) {
-      titulo.setTitle('PcStore - Search');
-      this.articles = [];
+      titulo.setTitle('PcStore - Búsqueda');
+      this.articles = this.articlesService.articlesFAKE;
+      this.searchArticles = [];
       this.cartCounter = this.articlesService.cartCounter;      
       this.bodyHeight = 0;
-      this.search = history.state.section;
+      this.search = '';
     }
   
   ngOnInit() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    this.route.queryParams.subscribe(params => {
+      this.search = params['search'];
+    });
+
+    this.searchArticles = this.filterArticles(this.search);
+    console.log(this.searchArticles);
   }
 
   ngAfterViewInit() {
@@ -54,6 +64,18 @@ export class SearchComponent implements OnInit {
     } else {
       console.error('El elemento <body> no está definido');
     }
+  }
+
+  public filterArticles(keyword: String): Array<Article> {
+    const searchTerm = keyword.toLowerCase();
+    
+    const filteredArticles = this.articles.filter(article => {
+        const nameLower = article.name.toLowerCase();
+        const categoryLower = article.category.toLowerCase();
+        return nameLower.includes(searchTerm) || categoryLower.includes(searchTerm);
+    });
+    
+    return filteredArticles;
   }
 
   public onClickProduct(article: Article): void {

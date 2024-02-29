@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   
   cartCounter: number;
   cartCounterSubscription: Subscription;
+  searchInput: string;
 
   constructor(
     private router: Router, 
@@ -21,7 +22,8 @@ export class NavbarComponent implements OnInit {
       this.cartCounter = this.articlesService.cartCounter;
       this.cartCounterSubscription = this.articlesService.cartCounterSubject.subscribe((counter: number) => {
         this.cartCounter = counter;
-      });
+      });      
+      this.searchInput = '';
     }
   
   ngOnInit() {
@@ -58,7 +60,7 @@ export class NavbarComponent implements OnInit {
         window.scrollTo({ top: targetY, behavior: 'auto' });
       }
     } else {     
-      this.router.navigate(['/categories'], { state: { section: section }});
+      this.router.navigate(['/categories'], { queryParams: { section: section }});
     }
   }  
 
@@ -66,7 +68,11 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/services']);
   }
 
-  public onClickSearch(search: String): void {
-    this.router.navigate(['/search'], { state: { search: search }});
+  public onClickSearch(search: string): void {
+    if (search && search.trim().length > 0) {
+      this.router.navigate(['/search'], { queryParams: { search: search }}).then(() => {
+        window.location.reload();
+      });
+    }
   }
 }
