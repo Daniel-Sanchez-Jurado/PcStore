@@ -70,9 +70,7 @@ export class NavbarComponent implements OnInit {
 
   public onClickSearch(search: string): void {
     if (search && search.trim().length > 0) {
-      this.router.navigate(['/search'], { queryParams: { search: search }}).then(() => {
-        window.location.reload();
-      });
+      this.router.navigate(['/search'], { queryParams: { search: search }});
     }
   }
 }

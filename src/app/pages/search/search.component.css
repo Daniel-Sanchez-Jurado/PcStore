@@ -9,6 +9,13 @@
       transform: translate(-50%, -50%);
     color: #5f5f5f;
   }
+
+  .footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }  
   
   /* Media query para hacer la barra de navegación más flexible */
   @media screen and (max-width: 768px) {

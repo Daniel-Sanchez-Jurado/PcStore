@@ -1,4 +1,4 @@
-    /* Estilos para el encabezado y la barra de navegación */
+  /* Estilos para el encabezado y la barra de navegación */
   header {
     background-color: black;
     color: white;
@@ -9,6 +9,12 @@
     top: 0; /* Fijar el encabezado en la parte superior */
     width: 100%; /* Asegurarse de que el encabezado ocupe todo el ancho */
     z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+  }
+
+  /* Cambiar el cursor a puntero en los elementos de la barra de navegación */
+  #menu li a,
+  .main-nav__link {
+    cursor: pointer;
   }
 
   /* Estilos para los enlaces de la barra de navegación */
@@ -29,6 +35,35 @@
     text-decoration: none; /* Quitamos el subrayado */
   }
   
+  /* Añadimos reglas para alinear los elementos a la derecha */
+  #menu {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos horizontalmente */
+    align-items: center;
+  }
+
+  .main-nav__item--search,
+  .main-nav__link {
+    margin-left: auto; /* Mueve los elementos al extremo derecho */
+  }
+
+  /* Contenedor flexible para el input */
+  .main-nav__item--search {
+    flex-grow: 1; /* Permite que el input crezca para ocupar el espacio restante */
+  }
+
+  /* Estilo del input de búsqueda */
+  .main-nav__item--search input {
+    width: 96%; 
+    border-radius: 15px;
+    padding-left: 15px;
+  }
+
+  .main-nav__item--search form {
+    width: 100%; 
+    border-radius: 15px;
+  }
+
   /* Estilos para el logo */
   .logo {
     display: flex;

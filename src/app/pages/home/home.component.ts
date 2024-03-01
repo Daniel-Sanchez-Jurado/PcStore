@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // FALLA AL HACER LA PETICIÓN
     this.articlesService.getArticlesAPI('dani', 'dashzhzsedni');
-
   }
 
   public onClickProduct(article: Article): void {

@@ -13,10 +13,10 @@ export class SearchComponent implements OnInit {
   
   articles: Article[];
   searchArticles: Article[];
-  cartCounter: number;/////////ARREGLAR EL COTADOR DE PRODUCTOS
+  cartCounter: number;
+  bodyElement: any;
   bodyHeight: number;
-
-  public search: String;
+  search: String;
 
   constructor(
     private router: Router,
@@ -28,43 +28,44 @@ export class SearchComponent implements OnInit {
       titulo.setTitle('PcStore - Búsqueda');
       this.articles = this.articlesService.articlesFAKE;
       this.searchArticles = [];
-      this.cartCounter = this.articlesService.cartCounter;      
+      this.cartCounter = this.articlesService.cartCounter;
+      this.bodyElement = document.body;      
       this.bodyHeight = 0;
       this.search = '';
     }
   
   ngOnInit() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
+  
     this.route.queryParams.subscribe(params => {
-      this.search = params['search'];
+      this.search = params['search'];      
+      this.searchArticles = this.filterArticles(this.search);      
+  
+      setTimeout(() => {
+        this.adjustFooterPosition();  
+      }, 50); 
     });
-
-    this.searchArticles = this.filterArticles(this.search);
-    console.log(this.searchArticles);
   }
-
-  ngAfterViewInit() {
-    const bodyElement = document.body;
-
-    if (bodyElement) {
-      this.bodyHeight = bodyElement.offsetHeight;
-      
-      if (this.bodyHeight < 919) {
-        const miFooter = this.elementRef.nativeElement.querySelector('#miFooter');
-        if (miFooter) {
-          miFooter.style.position = 'fixed';
-          miFooter.style.bottom = '0';
-          miFooter.style.left = '0';
-          miFooter.style.width = '100%';
+  
+  private adjustFooterPosition(): void {
+    const miFooter = this.elementRef.nativeElement.querySelector('#miFooter');
+    if (miFooter) {
+      const bodyElement = document.body;
+      if (bodyElement) {
+        const bodyHeight = bodyElement.offsetHeight;
+        
+        if (bodyHeight < 919) {
+          miFooter.classList.add('footer-fixed');
         } else {
-          console.error('El elemento <miFooter> no está definido');
+          miFooter.classList.remove('footer-fixed'); 
         }
+      } else {
+        console.error('El elemento <body> no está definido');
       }
     } else {
-      console.error('El elemento <body> no está definido');
+      console.error('El elemento <miFooter> no está definido');
     }
-  }
+  }  
 
   public filterArticles(keyword: String): Array<Article> {
     const searchTerm = keyword.toLowerCase();

@@ -12,5 +12,6 @@ import { SearchComponent } from './search.component';
     FooterModule
   ],
   exports: [SearchComponent],
+  providers: [],
 })
 export class SearchModule { }

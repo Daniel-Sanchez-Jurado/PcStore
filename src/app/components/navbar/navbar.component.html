@@ -40,10 +40,10 @@
             <!-- Dentro del elemento li, añadimos un formulario con un método get y una acción que llama a una función de búsqueda -->
             <form method="get" action="/search">
               <!-- Dentro del formulario, añadimos un input de tipo text con un nombre search y un placeholder que dice Buscar -->
-              <input type="text" name="search" placeholder="Buscar" [(ngModel)]="searchInput">
+              <input type="text" name="search" placeholder="¿Que estas buscando?" [(ngModel)]="searchInput">
               <!-- También añadimos un botón de tipo submit con una clase main-nav__link y un icono de una lupa -->
               <button (click)="this.onClickSearch(searchInput)" type="submit" class="main-nav__link">
-                <i class="fa fa-search"></i>
+                <i class="fas fa-search"></i>
               </button>
             </form>
           </li>  
